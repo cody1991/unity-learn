@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Driver : MonoBehaviour
 {
@@ -14,6 +15,19 @@ public class Driver : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (Keyboard.current.wKey.isPressed) {
+            Debug.Log("W key is pressed");
+        } else if (Keyboard.current.sKey.isPressed) {
+            Debug.Log("S key is pressed");
+        }
+        
+        if (Keyboard.current.aKey.isPressed) {
+            Debug.Log("A key is pressed");
+        } else if (Keyboard.current.dKey.isPressed) {
+            Debug.Log("D key is pressed");
+        }
+        
         transform.Rotate(0, 0, steerSpeed);
         transform.Translate(0, moveSpeed, 0);
     }
