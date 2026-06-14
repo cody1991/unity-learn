@@ -714,8 +714,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1915326826}
   - component: {fileID: 1915326825}
+  - component: {fileID: 1915326827}
   m_Layer: 0
-  m_Name: Circle (1)
+  m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -795,6 +796,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1915326827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915326824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bb17ecca53fb4699a52152ed4383428, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PrintToConsole
 --- !u!1 &2132231585
 GameObject:
   m_ObjectHideFlags: 0
