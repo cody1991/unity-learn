@@ -78,5 +78,5 @@ ServerData/
 .DS_Store
 
 # Local Unity WebGL build output
-2d/delivery/web-build/
+2d/delivery/web-build*/
 2d/delivery/Data/
