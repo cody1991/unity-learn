@@ -79,5 +79,4 @@ ServerData/
 
 # Local Unity WebGL build output
 2d/delivery/web-build/
-2d/delivery/delivery/web-build/
-2d/delivery/delivery/Data/
+2d/delivery/Data/
