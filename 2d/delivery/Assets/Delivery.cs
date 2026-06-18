@@ -21,10 +21,12 @@ public class Delivery : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         // Debug.Log("Trigger with " + other.gameObject.name + " " + other.gameObject.tag);
         if (other.CompareTag("Package")) {
-            Debug.Log("Package picked up"); 
+            // Debug.Log("Package picked up"); 
+            Destroy(other.gameObject);
         }
         if (other.CompareTag("Customer")) {
             Debug.Log("Package delivered");
+            Destroy(other.gameObject);
         }
     }
 }
