@@ -2503,7 +2503,7 @@ GameObject:
   - component: {fileID: 551723496}
   m_Layer: 0
   m_Name: monster_0
-  m_TagString: Untagged
+  m_TagString: Customer
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6830,7 +6830,7 @@ GameObject:
   - component: {fileID: 1429243752}
   m_Layer: 0
   m_Name: pickupitem_0
-  m_TagString: Untagged
+  m_TagString: Package
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
