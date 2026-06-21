@@ -14,6 +14,8 @@ public class Delivery : MonoBehaviour
         
     }
 
+    bool hasPackage = false;
+
     void OnCollisionEnter2D(Collision2D other) {
         // Debug.Log("Collision with " + other.gameObject.name + " " + other.gameObject.tag);
     }
@@ -23,10 +25,11 @@ public class Delivery : MonoBehaviour
         if (other.CompareTag("Package")) {
             // Debug.Log("Package picked up"); 
             Destroy(other.gameObject);
+            hasPackage = true;
         }
-        if (other.CompareTag("Customer")) {
+        if (other.CompareTag("Customer") && hasPackage) {
             Debug.Log("Package delivered");
-            Destroy(other.gameObject);
+            hasPackage = false;
         }
     }
 }
