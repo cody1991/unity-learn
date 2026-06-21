@@ -1426,6 +1426,7 @@ MonoBehaviour:
   currentSpeed: 5
   boostSpeed: 10
   regularSpeed: 5
+  boostText: {fileID: 988966300}
 --- !u!50 &259812003
 Rigidbody2D:
   serializedVersion: 5

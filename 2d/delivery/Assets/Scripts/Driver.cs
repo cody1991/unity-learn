@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class Driver : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class Driver : MonoBehaviour
 
     [SerializeField] float boostSpeed = 10f;
     [SerializeField] float regularSpeed = 5f;
+
+    [SerializeField] TMP_Text boostText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
