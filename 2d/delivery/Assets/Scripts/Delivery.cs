@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Delivery : MonoBehaviour
 {
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -15,6 +16,8 @@ public class Delivery : MonoBehaviour
     }
 
     bool hasPackage = false;
+    [SerializeField] float destroyDelay = 0.5f;
+
 
     void OnCollisionEnter2D(Collision2D other) {
         // Debug.Log("Collision with " + other.gameObject.name + " " + other.gameObject.tag);
@@ -24,7 +27,7 @@ public class Delivery : MonoBehaviour
         // Debug.Log("Trigger with " + other.gameObject.name + " " + other.gameObject.tag);
         if (other.CompareTag("Package")) {
             // Debug.Log("Package picked up"); 
-            Destroy(other.gameObject);
+            Destroy(other.gameObject, destroyDelay);
             hasPackage = true;
         }
         if (other.CompareTag("Customer") && hasPackage) {

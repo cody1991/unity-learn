@@ -1404,6 +1404,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0dbbfee71f424bd1ba37033e70d4572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Collision
+  destroyDelay: 0.5
 --- !u!1 &286808015
 GameObject:
   m_ObjectHideFlags: 0

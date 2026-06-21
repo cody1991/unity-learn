@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6673143163383768916}
   - component: {fileID: 1333780295465019910}
-  - component: {fileID: 3251610616605028887}
   - component: {fileID: 4644639162300652327}
   m_Layer: 0
   m_Name: Package PickUp
@@ -93,18 +92,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &3251610616605028887
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2003165111116818124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0dbbfee71f424bd1ba37033e70d4572, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Delivery
 --- !u!61 &4644639162300652327
 BoxCollider2D:
   m_ObjectHideFlags: 0
