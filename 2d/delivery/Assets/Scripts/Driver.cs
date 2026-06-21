@@ -18,7 +18,12 @@ public class Driver : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Boost")) {
             currentSpeed = boostSpeed;
+            Destroy(other.gameObject);
         } 
+    }
+
+    void OnCollisionEnter2D(Collision2D other) {
+        currentSpeed = regularSpeed;
     }
 
     // Update is called once per frame
