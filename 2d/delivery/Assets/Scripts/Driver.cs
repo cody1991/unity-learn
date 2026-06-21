@@ -15,6 +15,12 @@ public class Driver : MonoBehaviour
         
     }
 
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.CompareTag("Boost")) {
+            currentSpeed = boostSpeed;
+        } 
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -32,6 +38,9 @@ public class Driver : MonoBehaviour
         } else if (Keyboard.current.dKey.isPressed) {
             steer = -1;
         }
+
+        // 碰撞到 boost
+        
         
         float steerAmount = steer * steerSpeed * Time.deltaTime;
         float moveAmount = move * currentSpeed * Time.deltaTime;
