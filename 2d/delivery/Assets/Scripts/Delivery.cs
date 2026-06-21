@@ -25,7 +25,7 @@ public class Delivery : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         // Debug.Log("Trigger with " + other.gameObject.name + " " + other.gameObject.tag);
-        if (other.CompareTag("Package")) {
+        if (other.CompareTag("Package") && !hasPackage) {
             // Debug.Log("Package picked up"); 
             Destroy(other.gameObject, destroyDelay);
             hasPackage = true;
