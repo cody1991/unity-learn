@@ -7,6 +7,7 @@ TagManager:
   - Package
   - Customer
   - Boost
+  - Collision
   layers:
   - Default
   - TransparentFX

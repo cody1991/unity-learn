@@ -37,6 +37,8 @@ public class Delivery : MonoBehaviour
             Debug.Log("Package delivered");
             hasPackage = false;
             GetComponent<ParticleSystem>().Stop();
+
+            Destroy(other.gameObject, destroyDelay);
         }
     }
 }

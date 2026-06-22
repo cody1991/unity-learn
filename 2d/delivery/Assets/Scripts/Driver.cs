@@ -15,18 +15,23 @@ public class Driver : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        boostText.gameObject.SetActive(false);
     }
+
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Boost")) {
             currentSpeed = boostSpeed;
+            boostText.gameObject.SetActive(true);
             Destroy(other.gameObject);
         } 
     }
 
     void OnCollisionEnter2D(Collision2D other) {
-        currentSpeed = regularSpeed;
+        if (other.collider.CompareTag("Collision")) {
+            currentSpeed = regularSpeed;
+            boostText.gameObject.SetActive(false);
+        }
     }
 
     // Update is called once per frame
