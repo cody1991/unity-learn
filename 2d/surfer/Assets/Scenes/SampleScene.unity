@@ -384,6 +384,7 @@ GameObject:
   - component: {fileID: 802854327}
   - component: {fileID: 802854324}
   - component: {fileID: 802854328}
+  - component: {fileID: 802854329}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -405,7 +406,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDamping: 0
-  m_AngularDamping: 0.05
+  m_AngularDamping: 15
   m_GravityScale: 0.9
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -471,6 +472,19 @@ CapsuleCollider2D:
   m_Offset: {x: 0.01, y: -1.26}
   m_Size: {x: 3.436461, y: 0.65}
   m_Direction: 1
+--- !u!114 &802854329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802854323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f48d92e9f72d4b89874ee962f27b117, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::player_controller
+  torqueAmount: 1
 --- !u!1 &991599967
 GameObject:
   m_ObjectHideFlags: 0
@@ -970,7 +984,7 @@ SpriteShapeRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
+  m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
