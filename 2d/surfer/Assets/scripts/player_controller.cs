@@ -11,9 +11,7 @@ public class player_controller : MonoBehaviour
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
-
         rb = GetComponent<Rigidbody2D>();
-
     }
 
     // Update is called once per frame
@@ -21,9 +19,6 @@ public class player_controller : MonoBehaviour
     {
         Vector2 moveVector;
         moveVector = moveAction.ReadValue<Vector2>();
-
-        Debug.Log(moveVector);
-
         rb.AddTorque(-moveVector.x * torqueAmount); 
     }
 }
