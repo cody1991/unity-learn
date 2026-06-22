@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.SceneManagement; 
 public class finish_line : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -19,7 +19,7 @@ public class finish_line : MonoBehaviour
         int layerIndex = LayerMask.NameToLayer("Player");
         
         if (other.gameObject.layer == layerIndex) {
-            Debug.Log("Player finished");
+            SceneManager.LoadScene(0);
         }
     }
 }

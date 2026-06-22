@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement; 
 
 public class crash : MonoBehaviour
 {
@@ -14,11 +15,11 @@ public class crash : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D other) {
+    void OnTriggerEnter2D(Collider2D other) {
         int layerIndex = LayerMask.NameToLayer("Floor");
         
         if (other.gameObject.layer == layerIndex) {
-            Debug.Log("Player crashed");
+            SceneManager.LoadScene(0);
         }
     }
 }
