@@ -1,7 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement; 
 public class finish_line : MonoBehaviour
+
 {
+    [SerializeField] float reloadDelay = 1f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -19,7 +21,11 @@ public class finish_line : MonoBehaviour
         int layerIndex = LayerMask.NameToLayer("Player");
         
         if (other.gameObject.layer == layerIndex) {
-            SceneManager.LoadScene(0);
+            Invoke("ReloadScene", reloadDelay);
         }
+    }
+
+    void ReloadScene() {
+        SceneManager.LoadScene(0);
     }
 }
