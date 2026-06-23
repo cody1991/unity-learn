@@ -362,6 +362,7 @@ public class GameManager : MonoBehaviour
         rb.gravityScale = 1.2f;
         rb.angularDamping = 0.8f;
         rb.linearDamping = 0.05f;
+        rb.constraints = RigidbodyConstraints2D.FreezeRotation;
 
         if (preview)
         {

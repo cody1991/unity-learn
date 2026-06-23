@@ -103,12 +103,12 @@ TextureImporter:
       name: apple_0
       rect:
         serializedVersion: 2
-        x: 387
-        y: 129
-        width: 757
-        height: 781
+        x: 0
+        y: 0
+        width: 512
+        height: 512
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []

@@ -18,5 +18,6 @@ public class FruitTextureImporter : AssetPostprocessor
         importer.filterMode = FilterMode.Bilinear;
         importer.spritePixelsPerUnit = 512f;
         importer.textureCompression = TextureImporterCompression.Uncompressed;
+        importer.spriteMeshType = SpriteMeshType.FullRect;
     }
 }

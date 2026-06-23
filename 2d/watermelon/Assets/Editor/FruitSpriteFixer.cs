@@ -30,10 +30,12 @@ public static class FruitSpriteFixer
             importer.mipmapEnabled = false;
             importer.filterMode = FilterMode.Bilinear;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
+            importer.spriteMeshType = SpriteMeshType.FullRect;
             importer.SaveAndReimport();
             count++;
         }
 
-        Debug.Log($"Reimported {count} fruit sprites at 512 PPU.");
+        FruitColorSampler.UpdateFruitDatabaseColors();
+        Debug.Log($"Reimported {count} fruit sprites at 512 PPU and refreshed merge colors.");
     }
 }
