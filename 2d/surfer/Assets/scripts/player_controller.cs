@@ -15,6 +15,13 @@ public class player_controller : MonoBehaviour
     InputAction moveAction;
     Rigidbody2D rb;
 
+    void CalculateFlips() {
+        float currentRotation = transform.rotation.eulerAngles.z;
+
+        Debug.Log("Current rotation: " + currentRotation);
+
+    }
+
     void Start()
     {
         moveAction = InputSystem.actions.FindAction("Move");
@@ -33,6 +40,7 @@ public class player_controller : MonoBehaviour
             rotatePlayer();
             boostPlayer();
         }
+        CalculateFlips();
     }
 
     void rotatePlayer() {
