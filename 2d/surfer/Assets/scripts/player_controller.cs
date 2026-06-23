@@ -17,8 +17,8 @@ public class player_controller : MonoBehaviour
     
     float previousRotation;
     float totalRotation;
-    float flipCount;
 
+    score scoreValue;
 
     void CalculateFlips() {
         float currentRotation = transform.rotation.eulerAngles.z;
@@ -26,11 +26,10 @@ public class player_controller : MonoBehaviour
         totalRotation += Mathf.DeltaAngle(previousRotation, currentRotation);
 
         if (Mathf.Abs(totalRotation) > 340) {
-            flipCount++;
             totalRotation = 0;
-        }
+            scoreValue.AddScore(100);
 
-        Debug.Log("Flip count: " + flipCount);
+        }
 
         previousRotation = currentRotation;
 
@@ -42,6 +41,7 @@ public class player_controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         surfaceEffector2D = FindAnyObjectByType<SurfaceEffector2D>();
+        scoreValue = FindAnyObjectByType<score>();
     }
 
     public void HandleCanControlPlayer(bool canControlPlayer) {
