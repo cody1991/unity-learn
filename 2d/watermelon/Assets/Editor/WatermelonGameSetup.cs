@@ -191,11 +191,11 @@ public static class WatermelonGameSetup
         nextPanelRect.anchorMin = new Vector2(0.5f, 1f);
         nextPanelRect.anchorMax = new Vector2(0.5f, 1f);
         nextPanelRect.pivot = new Vector2(0.5f, 1f);
-        nextPanelRect.sizeDelta = new Vector2(360f, 96f);
-        nextPanelRect.anchoredPosition = new Vector2(0f, -110f);
+        nextPanelRect.sizeDelta = new Vector2(210f, 40f);
+        nextPanelRect.anchoredPosition = new Vector2(0f, -32f);
 
         Image nextPanelBg = nextPanel.AddComponent<Image>();
-        nextPanelBg.color = new Color(1f, 1f, 1f, 0.72f);
+        nextPanelBg.color = new Color(1f, 1f, 1f, 0.28f);
 
         GameObject iconObject = new GameObject("NextFruitIcon");
         iconObject.transform.SetParent(nextPanel.transform, false);
@@ -203,20 +203,20 @@ public static class WatermelonGameSetup
         iconRect.anchorMin = new Vector2(0f, 0.5f);
         iconRect.anchorMax = new Vector2(0f, 0.5f);
         iconRect.pivot = new Vector2(0f, 0.5f);
-        iconRect.sizeDelta = new Vector2(72f, 72f);
-        iconRect.anchoredPosition = new Vector2(16f, 0f);
+        iconRect.sizeDelta = new Vector2(36f, 36f);
+        iconRect.anchoredPosition = new Vector2(8f, 0f);
         nextFruitIcon = iconObject.AddComponent<Image>();
         nextFruitIcon.preserveAspect = true;
 
-        GameObject nextObject = CreateUIText(nextPanel.transform, "NextFruitText", new Vector2(100f, 0f), TextAnchor.MiddleLeft, 34);
+        GameObject nextObject = CreateUIText(nextPanel.transform, "NextFruitText", new Vector2(48f, 0f), TextAnchor.MiddleLeft, 26);
         nextFruitText = nextObject.GetComponent<Text>();
         nextFruitText.font = font;
         RectTransform nextRect = nextObject.GetComponent<RectTransform>();
         nextRect.anchorMin = new Vector2(0f, 0.5f);
         nextRect.anchorMax = new Vector2(1f, 0.5f);
         nextRect.pivot = new Vector2(0f, 0.5f);
-        nextRect.sizeDelta = new Vector2(-116f, 72f);
-        nextRect.anchoredPosition = new Vector2(100f, 0f);
+        nextRect.sizeDelta = new Vector2(-56f, 36f);
+        nextRect.anchoredPosition = new Vector2(48f, 0f);
 
         GameObject scoreBoardObject = new GameObject("ScoreBoard");
         scoreBoardObject.transform.SetParent(canvasObject.transform, false);

@@ -97,6 +97,7 @@ public class GameManager : MonoBehaviour
         }
 
         EnsureNextFruitUI();
+        CompactNextFruitUI();
         UpdateNextFruitUI();
         SpawnPreviewFruit();
     }
@@ -132,11 +133,11 @@ public class GameManager : MonoBehaviour
         panelRect.anchorMin = new Vector2(0.5f, 1f);
         panelRect.anchorMax = new Vector2(0.5f, 1f);
         panelRect.pivot = new Vector2(0.5f, 1f);
-        panelRect.sizeDelta = new Vector2(360f, 96f);
-        panelRect.anchoredPosition = new Vector2(0f, -110f);
+        panelRect.sizeDelta = new Vector2(210f, 40f);
+        panelRect.anchoredPosition = new Vector2(0f, -32f);
 
         Image panelBg = panel.AddComponent<Image>();
-        panelBg.color = new Color(1f, 1f, 1f, 0.82f);
+        panelBg.color = new Color(1f, 1f, 1f, 0.28f);
 
         GameObject iconObject = new GameObject("NextFruitIcon");
         iconObject.transform.SetParent(panel.transform, false);
@@ -144,8 +145,8 @@ public class GameManager : MonoBehaviour
         iconRect.anchorMin = new Vector2(0f, 0.5f);
         iconRect.anchorMax = new Vector2(0f, 0.5f);
         iconRect.pivot = new Vector2(0f, 0.5f);
-        iconRect.sizeDelta = new Vector2(72f, 72f);
-        iconRect.anchoredPosition = new Vector2(16f, 0f);
+        iconRect.sizeDelta = new Vector2(36f, 36f);
+        iconRect.anchoredPosition = new Vector2(8f, 0f);
         nextFruitIcon = iconObject.AddComponent<Image>();
         nextFruitIcon.preserveAspect = true;
 
@@ -156,9 +157,51 @@ public class GameManager : MonoBehaviour
             textRect.anchorMin = new Vector2(0f, 0.5f);
             textRect.anchorMax = new Vector2(1f, 0.5f);
             textRect.pivot = new Vector2(0f, 0.5f);
-            textRect.sizeDelta = new Vector2(-116f, 72f);
-            textRect.anchoredPosition = new Vector2(100f, 0f);
+            textRect.sizeDelta = new Vector2(-56f, 36f);
+            textRect.anchoredPosition = new Vector2(48f, 0f);
+            nextFruitText.fontSize = 26;
             nextFruitText.alignment = TextAnchor.MiddleLeft;
+        }
+    }
+
+    void CompactNextFruitUI()
+    {
+        GameObject panel = GameObject.Find("NextFruitPanel");
+        if (panel != null)
+        {
+            RectTransform panelRect = panel.GetComponent<RectTransform>();
+            panelRect.sizeDelta = new Vector2(210f, 40f);
+            panelRect.anchoredPosition = new Vector2(0f, -32f);
+            Image panelBg = panel.GetComponent<Image>();
+            if (panelBg != null)
+            {
+                panelBg.color = new Color(1f, 1f, 1f, 0.28f);
+            }
+        }
+
+        if (nextFruitIcon == null)
+        {
+            nextFruitIcon = GameObject.Find("NextFruitIcon")?.GetComponent<Image>();
+        }
+
+        if (nextFruitIcon != null)
+        {
+            RectTransform iconRect = nextFruitIcon.GetComponent<RectTransform>();
+            iconRect.sizeDelta = new Vector2(36f, 36f);
+            iconRect.anchoredPosition = new Vector2(8f, 0f);
+        }
+
+        if (nextFruitText == null)
+        {
+            nextFruitText = GameObject.Find("NextFruitText")?.GetComponent<Text>();
+        }
+
+        if (nextFruitText != null)
+        {
+            nextFruitText.fontSize = 26;
+            RectTransform textRect = nextFruitText.GetComponent<RectTransform>();
+            textRect.sizeDelta = new Vector2(-56f, 36f);
+            textRect.anchoredPosition = new Vector2(48f, 0f);
         }
     }
 
@@ -317,7 +360,7 @@ public class GameManager : MonoBehaviour
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         rb.gravityScale = 1.2f;
-        rb.angularDamping = 0.15f;
+        rb.angularDamping = 0.8f;
         rb.linearDamping = 0.05f;
 
         if (preview)
@@ -416,7 +459,6 @@ public class GameManager : MonoBehaviour
 
     void ApplyNaturalPhysics(Rigidbody2D rb)
     {
-        rb.AddTorque(Random.Range(-6f, 6f), ForceMode2D.Impulse);
-        rb.AddForce(new Vector2(Random.Range(-0.12f, 0.12f), 0f), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(Random.Range(-0.05f, 0.05f), 0f), ForceMode2D.Impulse);
     }
 }

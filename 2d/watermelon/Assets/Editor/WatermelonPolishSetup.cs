@@ -66,11 +66,11 @@ public static class WatermelonPolishSetup
         panelRect.anchorMin = new Vector2(0.5f, 1f);
         panelRect.anchorMax = new Vector2(0.5f, 1f);
         panelRect.pivot = new Vector2(0.5f, 1f);
-        panelRect.sizeDelta = new Vector2(360f, 96f);
-        panelRect.anchoredPosition = new Vector2(0f, -110f);
+        panelRect.sizeDelta = new Vector2(210f, 40f);
+        panelRect.anchoredPosition = new Vector2(0f, -32f);
 
         Image panelBg = panel.AddComponent<Image>();
-        panelBg.color = new Color(1f, 1f, 1f, 0.72f);
+        panelBg.color = new Color(1f, 1f, 1f, 0.28f);
 
         GameObject iconObject = new GameObject("NextFruitIcon");
         iconObject.transform.SetParent(panel.transform, false);
@@ -78,8 +78,8 @@ public static class WatermelonPolishSetup
         iconRect.anchorMin = new Vector2(0f, 0.5f);
         iconRect.anchorMax = new Vector2(0f, 0.5f);
         iconRect.pivot = new Vector2(0f, 0.5f);
-        iconRect.sizeDelta = new Vector2(72f, 72f);
-        iconRect.anchoredPosition = new Vector2(16f, 0f);
+        iconRect.sizeDelta = new Vector2(36f, 36f);
+        iconRect.anchoredPosition = new Vector2(8f, 0f);
         Image icon = iconObject.AddComponent<Image>();
         icon.preserveAspect = true;
 
@@ -90,8 +90,9 @@ public static class WatermelonPolishSetup
             textRect.anchorMin = new Vector2(0f, 0.5f);
             textRect.anchorMax = new Vector2(1f, 0.5f);
             textRect.pivot = new Vector2(0f, 0.5f);
-            textRect.sizeDelta = new Vector2(-116f, 72f);
-            textRect.anchoredPosition = new Vector2(100f, 0f);
+            textRect.sizeDelta = new Vector2(-56f, 36f);
+            textRect.anchoredPosition = new Vector2(48f, 0f);
+            nextText.fontSize = 26;
             nextText.alignment = TextAnchor.MiddleLeft;
         }
 
