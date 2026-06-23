@@ -30,7 +30,6 @@ public static class FruitSpriteFixer
             importer.mipmapEnabled = false;
             importer.filterMode = FilterMode.Bilinear;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
-            importer.spriteMeshType = SpriteMeshType.FullRect;
             importer.SaveAndReimport();
             count++;
         }
