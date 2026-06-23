@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 public class player_controller : MonoBehaviour
 {
     Vector2 moveVector;
-    [SerializeField] float torqueAmount = 1f;
+    [SerializeField] float torqueAmount = 300f;
     [SerializeField] float baseSpeed = 15f;
     [SerializeField] float boostSpeed = 20f;
 
@@ -59,7 +59,7 @@ public class player_controller : MonoBehaviour
 
     void rotatePlayer() {
         moveVector = moveAction.ReadValue<Vector2>();
-        rb.AddTorque(-moveVector.x * torqueAmount); 
+        rb.AddTorque(-moveVector.x * torqueAmount * Time.deltaTime, ForceMode2D.Impulse);
     }
 
     void boostPlayer() {

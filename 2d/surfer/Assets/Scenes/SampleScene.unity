@@ -5897,7 +5897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f48d92e9f72d4b89874ee962f27b117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player_controller
-  torqueAmount: 3
+  torqueAmount: 300
   baseSpeed: 15
   boostSpeed: 20
   canControlPlayer: 1
