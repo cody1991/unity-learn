@@ -82,4 +82,16 @@ public class player_controller : MonoBehaviour
                 break;
         }
     }
+
+    public void ResetPowerup(powerup powerup) {
+        switch (powerup.GetPowerupName()) {
+            case "speed":
+                boostSpeed -= powerup.GetValueChange();
+                baseSpeed -= powerup.GetValueChange();
+                break;
+            case "torque":
+                torqueAmount -= powerup.GetValueChange();
+                break;
+        }
+    }
 }

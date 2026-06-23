@@ -38,6 +38,7 @@ public class power : MonoBehaviour
                 if (timeLeft <= 0) {
                     // time left
                     Debug.Log("Time left: " + timeLeft);
+                    playerController.ResetPowerup(powerup);
                 }
             }
         }
