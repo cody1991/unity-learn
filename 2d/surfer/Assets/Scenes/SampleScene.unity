@@ -6329,6 +6329,7 @@ MonoBehaviour:
   torqueAmount: 100
   baseSpeed: 15
   boostSpeed: 20
+  scoreValue: {fileID: 735817486}
   canControlPlayer: 1
 --- !u!58 &802854330
 CircleCollider2D:

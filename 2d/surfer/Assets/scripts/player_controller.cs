@@ -13,6 +13,8 @@ public class player_controller : MonoBehaviour
     [SerializeField] float baseSpeed = 15f;
     [SerializeField] float boostSpeed = 20f;
 
+    [SerializeField] score scoreValue;
+
     SurfaceEffector2D surfaceEffector2D;
 
     [SerializeField] bool canControlPlayer = true;
@@ -22,9 +24,7 @@ public class player_controller : MonoBehaviour
     
     float previousRotation;
     float totalRotation;
-
-    score scoreValue;
-
+ 
     void CalculateFlips() {
         float currentRotation = transform.rotation.eulerAngles.z;
 
@@ -44,9 +44,7 @@ public class player_controller : MonoBehaviour
     {
         moveAction = InputSystem.actions.FindAction("Move");
         rb = GetComponent<Rigidbody2D>();
-
         surfaceEffector2D = FindAnyObjectByType<SurfaceEffector2D>();
-        scoreValue = FindAnyObjectByType<score>();
     }
 
     public void HandleCanControlPlayer(bool canControlPlayer) {
