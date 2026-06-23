@@ -8,10 +8,14 @@ public class power : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
 
+    float timeLeft;
+
     void Start() {
         playerController = FindAnyObjectByType<player_controller>();
 
         spriteRenderer = GetComponent<SpriteRenderer>();
+
+        timeLeft = powerup.GetTime();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -20,4 +24,23 @@ public class power : MonoBehaviour
             spriteRenderer.enabled = false;
         }
     }
+
+    void Update() {
+        Countdown();
+    }
+
+    void Countdown() {
+        if (!spriteRenderer.enabled) {
+
+            if (timeLeft > 0) {
+                timeLeft -= Time.deltaTime;
+
+                if (timeLeft <= 0) {
+                    // time left
+                    Debug.Log("Time left: " + timeLeft);
+                }
+            }
+        }
+    }
 }
+ 
