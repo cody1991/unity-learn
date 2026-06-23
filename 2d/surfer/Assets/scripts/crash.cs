@@ -10,7 +10,7 @@ public class crash : MonoBehaviour
 
     void Start()
     {
-        playerController = FindFirstObjectByType<player_controller>();
+        playerController = FindAnyObjectByType<player_controller>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
