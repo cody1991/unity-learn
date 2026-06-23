@@ -19,6 +19,6 @@ public class player_controller : MonoBehaviour
     {
         Vector2 moveVector;
         moveVector = moveAction.ReadValue<Vector2>();
-        rb.AddTorque(-moveVector.x * torqueAmount); 
+        rb.AddTorque(-moveVector.x * torqueAmount * Time.deltaTime); 
     }
 }
