@@ -10,7 +10,7 @@ public class player_controller : MonoBehaviour
 
     SurfaceEffector2D surfaceEffector2D;
 
-    public bool canControlPlayer = true;
+    [SerializeField] bool canControlPlayer = true;
 
     InputAction moveAction;
     Rigidbody2D rb;
@@ -21,6 +21,10 @@ public class player_controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         surfaceEffector2D = FindFirstObjectByType<SurfaceEffector2D>();
+    }
+
+    public void changeCanControlPlayer(bool canControlPlayer) {
+        this.canControlPlayer = canControlPlayer;
     }
 
     void Update()
