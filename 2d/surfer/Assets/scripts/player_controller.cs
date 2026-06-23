@@ -14,11 +14,25 @@ public class player_controller : MonoBehaviour
 
     InputAction moveAction;
     Rigidbody2D rb;
+    
+    float previousRotation;
+    float totalRotation;
+    float flipCount;
+
 
     void CalculateFlips() {
         float currentRotation = transform.rotation.eulerAngles.z;
 
-        Debug.Log("Current rotation: " + currentRotation);
+        totalRotation += Mathf.DeltaAngle(previousRotation, currentRotation);
+
+        if (Mathf.Abs(totalRotation) > 340) {
+            flipCount++;
+            totalRotation = 0;
+        }
+
+        Debug.Log("Flip count: " + flipCount);
+
+        previousRotation = currentRotation;
 
     }
 
