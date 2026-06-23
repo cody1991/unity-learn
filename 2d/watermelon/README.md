@@ -18,7 +18,7 @@ A Suika-style fruit merging game built with Unity 6.
 
 ## Fruit Chain
 
-Cherry → Strawberry → Grape → Dekopon → Orange → Apple → Pear → Peach → Pineapple → Melon → Watermelon
+Cherry → Strawberry → Grape → Orange → Apple → Pear → Peach → Pineapple → Melon → Watermelon
 
 ## Project Structure
 

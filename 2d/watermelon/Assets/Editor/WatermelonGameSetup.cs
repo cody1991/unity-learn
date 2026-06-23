@@ -30,7 +30,7 @@ public static class WatermelonGameSetup
         }
 
         camera.orthographic = true;
-        camera.orthographicSize = 5f;
+        camera.orthographicSize = 4f;
         camera.transform.position = new Vector3(0f, 0f, -10f);
         camera.backgroundColor = new Color(0.96f, 0.93f, 0.86f);
 
@@ -80,8 +80,8 @@ public static class WatermelonGameSetup
         {
             material = new PhysicsMaterial2D("FruitPhysicsMaterial")
             {
-                friction = 0.35f,
-                bounciness = 0.15f
+                friction = 0.12f,
+                bounciness = 0.28f
             };
             AssetDatabase.CreateAsset(material, PhysicsMaterialPath);
         }
@@ -106,22 +106,22 @@ public static class WatermelonGameSetup
         SpriteRenderer renderer = background.AddComponent<SpriteRenderer>();
         renderer.sprite = SpriteFactory.CreateCircleSprite(new Color(0.92f, 0.88f, 0.78f), 8);
         renderer.drawMode = SpriteDrawMode.Sliced;
-        renderer.size = new Vector2(5.2f, 9.5f);
+        renderer.size = new Vector2(4.8f, 7.2f);
         renderer.sortingOrder = -10;
-        background.transform.localScale = new Vector3(5.2f, 9.5f, 1f);
+        background.transform.localScale = new Vector3(4.8f, 7.2f, 1f);
     }
 
     static void CreateContainer()
     {
         GameObject walls = new GameObject("Container");
 
-        CreateWall(walls.transform, "LeftWall", new Vector2(-2.5f, 0f), new Vector2(0.2f, 10f));
-        CreateWall(walls.transform, "RightWall", new Vector2(2.5f, 0f), new Vector2(0.2f, 10f));
-        CreateWall(walls.transform, "Floor", new Vector2(0f, -4.6f), new Vector2(5.4f, 0.3f));
+        CreateWall(walls.transform, "LeftWall", new Vector2(-2.5f, -0.2f), new Vector2(0.2f, 7.5f));
+        CreateWall(walls.transform, "RightWall", new Vector2(2.5f, -0.2f), new Vector2(0.2f, 7.5f));
+        CreateWall(walls.transform, "Floor", new Vector2(0f, -3.5f), new Vector2(5.4f, 0.3f));
 
         GameObject dangerLine = new GameObject("DangerLine");
         dangerLine.transform.SetParent(walls.transform, false);
-        dangerLine.transform.position = new Vector3(0f, 3.35f, 0f);
+        dangerLine.transform.position = new Vector3(0f, 2.7f, 0f);
 
         SpriteRenderer lineRenderer = dangerLine.AddComponent<SpriteRenderer>();
         lineRenderer.sprite = SpriteFactory.CreateCircleSprite(new Color(0.9f, 0.25f, 0.25f, 0.8f), 8);
@@ -152,7 +152,7 @@ public static class WatermelonGameSetup
     static void CreateGameOverZone(out GameOverDetector detector)
     {
         GameObject zone = new GameObject("GameOverZone");
-        zone.transform.position = new Vector3(0f, 4.1f, 0f);
+        zone.transform.position = new Vector3(0f, 3.3f, 0f);
 
         BoxCollider2D collider = zone.AddComponent<BoxCollider2D>();
         collider.isTrigger = true;

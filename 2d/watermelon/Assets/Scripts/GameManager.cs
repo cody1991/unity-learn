@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] MergeFeedback mergeFeedback;
 
     [Header("Layout")]
-    [SerializeField] float dropHeight = 4.2f;
+    [SerializeField] float dropHeight = 3.4f;
     [SerializeField] float wallInnerX = 2.34f;
     [SerializeField] int maxSpawnTier = 4;
 
@@ -256,6 +256,7 @@ public class GameManager : MonoBehaviour
 
         Fruit fruit = currentFruit.GetComponent<Fruit>();
         fruit.Setup(fruit.Tier, false);
+        ApplyNaturalPhysics(rb);
 
         mergeFeedback?.PlayDrop();
 
@@ -282,35 +283,51 @@ public class GameManager : MonoBehaviour
             mergeFeedback.PlayMerge(position, mergedFrom.color, newTier - 1);
         }
 
-        CreateFruit(newTier, position, false);
+        CreateFruit(newTier, JitterMergePosition(position), false);
+    }
+
+    Vector3 JitterMergePosition(Vector3 position)
+    {
+        position.x += Random.Range(-0.04f, 0.04f);
+        position.y += 0.03f;
+        return position;
     }
 
     Fruit CreateFruit(int tier, Vector3 position, bool preview)
     {
         FruitDefinition def = database.Get(tier);
+        Sprite sprite = fruitSprites[tier];
+        float spriteRadius = sprite.bounds.extents.x;
+
         GameObject go = new GameObject("Fruit_" + def.name);
         go.transform.SetParent(fruitContainer, false);
         go.transform.position = position;
-        go.transform.localScale = Vector3.one * def.radius * 2f;
+        go.transform.localScale = Vector3.one * (def.radius / spriteRadius);
         go.tag = "Fruit";
 
         SpriteRenderer renderer = go.AddComponent<SpriteRenderer>();
-        renderer.sprite = fruitSprites[tier];
+        renderer.sprite = sprite;
         renderer.sortingOrder = tier + 10;
 
         CircleCollider2D collider = go.AddComponent<CircleCollider2D>();
-        collider.radius = 0.5f;
+        collider.radius = spriteRadius;
         collider.sharedMaterial = fruitPhysicsMaterial;
 
         Rigidbody2D rb = go.AddComponent<Rigidbody2D>();
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         rb.gravityScale = 1.2f;
+        rb.angularDamping = 0.15f;
+        rb.linearDamping = 0.05f;
 
         if (preview)
         {
             rb.bodyType = RigidbodyType2D.Kinematic;
             rb.simulated = false;
+        }
+        else
+        {
+            ApplyNaturalPhysics(rb);
         }
 
         Fruit fruit = go.AddComponent<Fruit>();
@@ -395,5 +412,11 @@ public class GameManager : MonoBehaviour
             Sprite sprite = FruitSpriteLoader.Load(def.name);
             fruitSprites[i] = sprite != null ? sprite : SpriteFactory.CreateCircleSprite(def.color);
         }
+    }
+
+    void ApplyNaturalPhysics(Rigidbody2D rb)
+    {
+        rb.AddTorque(Random.Range(-6f, 6f), ForceMode2D.Impulse);
+        rb.AddForce(new Vector2(Random.Range(-0.12f, 0.12f), 0f), ForceMode2D.Impulse);
     }
 }

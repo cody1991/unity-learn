@@ -8,7 +8,7 @@ public static class WatermelonPolishSetup
     [MenuItem("Watermelon/Apply Polish To Scene")]
     public static void ApplyPolishToScene()
     {
-        AssetDatabase.ImportAsset("Assets/Resources/Fruits", ImportAssetOptions.ImportRecursive);
+        FruitSpriteFixer.FixFruitSprites();
         AssetDatabase.ImportAsset("Assets/Resources/Audio", ImportAssetOptions.ImportRecursive);
 
         GameManager manager = Object.FindFirstObjectByType<GameManager>();

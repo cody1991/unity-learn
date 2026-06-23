@@ -25,35 +25,31 @@ MonoBehaviour:
     color: {r: 0.55, g: 0.2, b: 0.75, a: 1}
     radius: 0.34
     mergeScore: 6
-  - name: Dekopon
-    color: {r: 1, g: 0.55, b: 0.1, a: 1}
-    radius: 0.38
-    mergeScore: 8
   - name: Orange
     color: {r: 1, g: 0.45, b: 0.05, a: 1}
-    radius: 0.42
-    mergeScore: 10
+    radius: 0.4
+    mergeScore: 8
   - name: Apple
     color: {r: 0.9, g: 0.15, b: 0.15, a: 1}
     radius: 0.46
-    mergeScore: 12
+    mergeScore: 10
   - name: Pear
     color: {r: 0.75, g: 0.85, b: 0.2, a: 1}
     radius: 0.5
-    mergeScore: 14
+    mergeScore: 12
   - name: Peach
     color: {r: 1, g: 0.65, b: 0.55, a: 1}
     radius: 0.54
-    mergeScore: 16
+    mergeScore: 14
   - name: Pineapple
     color: {r: 0.95, g: 0.8, b: 0.1, a: 1}
     radius: 0.6
-    mergeScore: 18
+    mergeScore: 16
   - name: Melon
     color: {r: 0.45, g: 0.8, b: 0.35, a: 1}
     radius: 0.68
-    mergeScore: 20
+    mergeScore: 18
   - name: Watermelon
     color: {r: 0.15, g: 0.55, b: 0.2, a: 1}
     radius: 0.78
-    mergeScore: 22
+    mergeScore: 20
