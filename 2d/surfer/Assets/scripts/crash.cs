@@ -19,7 +19,7 @@ public class crash : MonoBehaviour
         if (other.gameObject.layer == layerIndex) {
             Invoke("ReloadScene", reloadDelay);
             crashEffect.Play();
-            playerController.changeCanControlPlayer(false);
+            playerController.HandleCanControlPlayer(false);
         }
     }
 

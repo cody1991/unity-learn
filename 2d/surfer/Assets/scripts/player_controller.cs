@@ -23,7 +23,7 @@ public class player_controller : MonoBehaviour
         surfaceEffector2D = FindFirstObjectByType<SurfaceEffector2D>();
     }
 
-    public void changeCanControlPlayer(bool canControlPlayer) {
+    public void HandleCanControlPlayer(bool canControlPlayer) {
         this.canControlPlayer = canControlPlayer;
     }
 
