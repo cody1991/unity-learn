@@ -3,6 +3,11 @@ using UnityEngine.InputSystem;
 
 public class player_controller : MonoBehaviour
 {
+
+
+    [SerializeField] ParticleSystem boostParticles;
+    int boostParticlesCount = 0;
+
     Vector2 moveVector;
     [SerializeField] float torqueAmount = 300f;
     [SerializeField] float baseSpeed = 15f;
@@ -81,6 +86,9 @@ public class player_controller : MonoBehaviour
                 torqueAmount += powerup.GetValueChange();
                 break;
         }
+
+        boostParticlesCount++;
+        boostParticles.Play();
     }
 
     public void ResetPowerup(powerup powerup) {
@@ -92,6 +100,11 @@ public class player_controller : MonoBehaviour
             case "torque":
                 torqueAmount -= powerup.GetValueChange();
                 break;
+        }
+
+        boostParticlesCount--;
+        if (boostParticlesCount <= 0) {
+            boostParticles.Stop();
         }
     }
 }
