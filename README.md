@@ -22,3 +22,10 @@ A Suika-style fruit merging game (合成大西瓜).
 - Project path: `2d/watermelon`
 - Open in Unity 6, then run **Watermelon → Setup Game Scene** before playing
 
+## Arrows
+
+A minimalist arrow-extraction logic puzzle inspired by Arrows – Puzzle Escape.
+
+- Project path: `2d/arrows`
+- Open in Unity 6, then run **Arrows → Setup Game Scene** before playing
+
