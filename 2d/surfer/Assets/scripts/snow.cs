@@ -11,10 +11,15 @@ public class snow : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D collision) {
-        snowEffect.Play();
+
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
+            snowEffect.Play();
+        }
     }
 
     void OnCollisionExit2D(Collision2D collision) {
-        snowEffect.Stop();
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player")) {
+            snowEffect.Stop();
+        }
     }
 }
