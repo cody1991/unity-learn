@@ -37,8 +37,8 @@ public static class WatermelonGameSetup
         CreateBackground();
         CreateContainer();
         CreateGameOverZone(out GameOverDetector detector);
-        CreateUI(out ScoreBoard scoreBoard, out GameObject gameOverPanel, out Text nextFruitText, out Image nextFruitIcon, out Image nextFruitIconInner);
-        GameManager manager = CreateGameManager(database, scoreBoard, detector, physicsMaterial, gameOverPanel, nextFruitText, nextFruitIcon, nextFruitIconInner);
+        CreateUI(out ScoreBoard scoreBoard, out GameObject gameOverPanel, out Text nextFruitText, out Image nextFruitIcon);
+        GameManager manager = CreateGameManager(database, scoreBoard, detector, physicsMaterial, gameOverPanel, nextFruitText, nextFruitIcon);
 
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);
@@ -163,7 +163,6 @@ public static class WatermelonGameSetup
 
     static void CreateUI(out ScoreBoard scoreBoard, out GameObject gameOverPanel, out Text nextFruitText, out Image nextFruitIcon, out Image nextFruitIconInner)
     {
-        nextFruitIconInner = null;
         GameObject canvasObject = new GameObject("Canvas");
         Canvas canvas = canvasObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
@@ -208,16 +207,6 @@ public static class WatermelonGameSetup
         iconRect.anchoredPosition = new Vector2(16f, 0f);
         nextFruitIcon = iconObject.AddComponent<Image>();
         nextFruitIcon.preserveAspect = true;
-
-        GameObject innerIconObject = new GameObject("Icon");
-        innerIconObject.transform.SetParent(iconObject.transform, false);
-        RectTransform innerIconRect = innerIconObject.AddComponent<RectTransform>();
-        innerIconRect.anchorMin = Vector2.zero;
-        innerIconRect.anchorMax = Vector2.one;
-        innerIconRect.offsetMin = new Vector2(8f, 8f);
-        innerIconRect.offsetMax = new Vector2(-8f, -8f);
-        Image nextFruitIconInner = innerIconObject.AddComponent<Image>();
-        nextFruitIconInner.preserveAspect = true;
 
         GameObject nextObject = CreateUIText(nextPanel.transform, "NextFruitText", new Vector2(100f, 0f), TextAnchor.MiddleLeft, 34);
         nextFruitText = nextObject.GetComponent<Text>();
@@ -313,8 +302,7 @@ public static class WatermelonGameSetup
         PhysicsMaterial2D physicsMaterial,
         GameObject gameOverPanel,
         Text nextFruitText,
-        Image nextFruitIcon,
-        Image nextFruitIconInner)
+        Image nextFruitIcon)
     {
         GameObject managerObject = new GameObject("GameManager");
         GameManager manager = managerObject.AddComponent<GameManager>();

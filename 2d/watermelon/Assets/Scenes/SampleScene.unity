@@ -1552,8 +1552,7 @@ MonoBehaviour:
   fruitContainer: {fileID: 1754477352}
   fruitPhysicsMaterial: {fileID: 6200000, guid: 84f39e43896d4410a93e212624e1a581, type: 2}
   dropHeight: 4.2
-  wallInnerX: 2.38
-  fruitIconScale: 0.68
+  wallInnerX: 2.34
   maxSpawnTier: 4
   gameOverPanel: {fileID: 1667114856}
   nextFruitText: {fileID: 915818717}

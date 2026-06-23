@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Layout")]
     [SerializeField] float dropHeight = 4.2f;
-    [SerializeField] float wallInnerX = 2.38f;
-    [SerializeField] float fruitIconScale = 0.68f;
+    [SerializeField] float wallInnerX = 2.34f;
     [SerializeField] int maxSpawnTier = 4;
 
     float leftBound => -wallInnerX;
@@ -27,10 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] GameObject gameOverPanel;
     [SerializeField] Text nextFruitText;
     [SerializeField] Image nextFruitIcon;
-    [SerializeField] Image nextFruitIconInner;
 
-    Sprite[] fruitIcons;
-    Sprite circleFrameSprite;
+    Sprite[] fruitSprites;
     Fruit currentFruit;
     int nextTier;
     bool isDropping;
@@ -96,20 +93,73 @@ public class GameManager : MonoBehaviour
 
         if (nextFruitIcon == null)
         {
-            GameObject iconObject = GameObject.Find("NextFruitIcon");
-            if (iconObject != null)
+            nextFruitIcon = GameObject.Find("NextFruitIcon")?.GetComponent<Image>();
+        }
+
+        EnsureNextFruitUI();
+        UpdateNextFruitUI();
+        SpawnPreviewFruit();
+    }
+
+    void EnsureNextFruitUI()
+    {
+        if (nextFruitIcon != null)
+        {
+            return;
+        }
+
+        Canvas canvas = FindAnyObjectByType<Canvas>();
+        if (canvas == null)
+        {
+            return;
+        }
+
+        if (nextFruitText == null)
+        {
+            foreach (Text text in canvas.GetComponentsInChildren<Text>(true))
             {
-                nextFruitIcon = iconObject.GetComponent<Image>();
-                Transform inner = iconObject.transform.Find("Icon");
-                if (inner != null)
+                if (text.gameObject.name == "NextFruitText")
                 {
-                    nextFruitIconInner = inner.GetComponent<Image>();
+                    nextFruitText = text;
+                    break;
                 }
             }
         }
 
-        UpdateNextFruitUI();
-        SpawnPreviewFruit();
+        GameObject panel = new GameObject("NextFruitPanel");
+        panel.transform.SetParent(canvas.transform, false);
+        RectTransform panelRect = panel.AddComponent<RectTransform>();
+        panelRect.anchorMin = new Vector2(0.5f, 1f);
+        panelRect.anchorMax = new Vector2(0.5f, 1f);
+        panelRect.pivot = new Vector2(0.5f, 1f);
+        panelRect.sizeDelta = new Vector2(360f, 96f);
+        panelRect.anchoredPosition = new Vector2(0f, -110f);
+
+        Image panelBg = panel.AddComponent<Image>();
+        panelBg.color = new Color(1f, 1f, 1f, 0.82f);
+
+        GameObject iconObject = new GameObject("NextFruitIcon");
+        iconObject.transform.SetParent(panel.transform, false);
+        RectTransform iconRect = iconObject.AddComponent<RectTransform>();
+        iconRect.anchorMin = new Vector2(0f, 0.5f);
+        iconRect.anchorMax = new Vector2(0f, 0.5f);
+        iconRect.pivot = new Vector2(0f, 0.5f);
+        iconRect.sizeDelta = new Vector2(72f, 72f);
+        iconRect.anchoredPosition = new Vector2(16f, 0f);
+        nextFruitIcon = iconObject.AddComponent<Image>();
+        nextFruitIcon.preserveAspect = true;
+
+        if (nextFruitText != null)
+        {
+            nextFruitText.transform.SetParent(panel.transform, false);
+            RectTransform textRect = nextFruitText.GetComponent<RectTransform>();
+            textRect.anchorMin = new Vector2(0f, 0.5f);
+            textRect.anchorMax = new Vector2(1f, 0.5f);
+            textRect.pivot = new Vector2(0f, 0.5f);
+            textRect.sizeDelta = new Vector2(-116f, 72f);
+            textRect.anchoredPosition = new Vector2(100f, 0f);
+            nextFruitText.alignment = TextAnchor.MiddleLeft;
+        }
     }
 
     void OnDestroy()
@@ -241,20 +291,21 @@ public class GameManager : MonoBehaviour
         GameObject go = new GameObject("Fruit_" + def.name);
         go.transform.SetParent(fruitContainer, false);
         go.transform.position = position;
-        go.transform.localScale = Vector3.one;
+        go.transform.localScale = Vector3.one * def.radius * 2f;
         go.tag = "Fruit";
 
+        SpriteRenderer renderer = go.AddComponent<SpriteRenderer>();
+        renderer.sprite = fruitSprites[tier];
+        renderer.sortingOrder = tier + 10;
+
         CircleCollider2D collider = go.AddComponent<CircleCollider2D>();
-        collider.radius = def.radius;
+        collider.radius = 0.5f;
         collider.sharedMaterial = fruitPhysicsMaterial;
 
         Rigidbody2D rb = go.AddComponent<Rigidbody2D>();
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
         rb.interpolation = RigidbodyInterpolation2D.Interpolate;
         rb.gravityScale = 1.2f;
-
-        FruitVisual visual = go.AddComponent<FruitVisual>();
-        visual.Build(circleFrameSprite, fruitIcons[tier], def.radius, tier + 10, fruitIconScale);
 
         if (preview)
         {
@@ -329,27 +380,20 @@ public class GameManager : MonoBehaviour
 
         if (nextFruitIcon != null)
         {
-            nextFruitIcon.sprite = circleFrameSprite;
-        }
-
-        if (nextFruitIconInner != null)
-        {
-            nextFruitIconInner.sprite = fruitIcons[nextTier];
-            nextFruitIconInner.enabled = nextFruitIconInner.sprite != null;
+            nextFruitIcon.sprite = fruitSprites[nextTier];
+            nextFruitIcon.enabled = nextFruitIcon.sprite != null;
         }
     }
 
     void BuildSprites()
     {
-        circleFrameSprite = SpriteFactory.CreateSuikaCircleFrame(new Color(1f, 0.98f, 0.94f));
-
-        fruitIcons = new Sprite[database.fruits.Length];
+        fruitSprites = new Sprite[database.fruits.Length];
 
         for (int i = 0; i < database.fruits.Length; i++)
         {
             FruitDefinition def = database.fruits[i];
-            Sprite icon = FruitSpriteLoader.Load(def.name);
-            fruitIcons[i] = icon != null ? icon : SpriteFactory.CreateCircleSprite(def.color);
+            Sprite sprite = FruitSpriteLoader.Load(def.name);
+            fruitSprites[i] = sprite != null ? sprite : SpriteFactory.CreateCircleSprite(def.color);
         }
     }
 }

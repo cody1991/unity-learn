@@ -9,8 +9,13 @@ public static class SpriteFactory
 
     public static Sprite CreateSuikaCircleFrame(Color fillColor, int resolution = 128)
     {
-        Color rimColor = new Color(fillColor.r * 0.55f, fillColor.g * 0.55f, fillColor.b * 0.55f, 1f);
-        return CreateCircleSpriteInternal(fillColor, rimColor, resolution, rimWidth: 4f, highlight: true);
+        Color rimColor = new Color(0.32f, 0.2f, 0.12f, 1f);
+        return CreateCircleSpriteInternal(fillColor, rimColor, resolution, rimWidth: 5f, highlight: true);
+    }
+
+    public static Sprite CreateCircleMaskSprite(int resolution = 128)
+    {
+        return CreateCircleSpriteInternal(Color.white, Color.white, resolution, rimWidth: 0f, highlight: false);
     }
 
     static Sprite CreateCircleSpriteInternal(

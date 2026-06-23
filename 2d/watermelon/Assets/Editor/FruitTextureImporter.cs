@@ -16,7 +16,7 @@ public class FruitTextureImporter : AssetPostprocessor
         importer.alphaIsTransparency = true;
         importer.mipmapEnabled = false;
         importer.filterMode = FilterMode.Bilinear;
-        importer.spritePixelsPerUnit = 256f;
+        importer.spritePixelsPerUnit = 512f;
         importer.textureCompression = TextureImporterCompression.Uncompressed;
     }
 }

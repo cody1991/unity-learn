@@ -25,17 +25,15 @@ public static class WatermelonPolishSetup
         }
 
         Image nextFruitIcon = EnsureNextFruitIcon(manager);
-        Image nextFruitIconInner = EnsureNextFruitIconInner(nextFruitIcon);
 
         SerializedObject managerSO = new SerializedObject(manager);
         managerSO.FindProperty("mergeFeedback").objectReferenceValue = feedback;
         managerSO.FindProperty("nextFruitIcon").objectReferenceValue = nextFruitIcon;
-        managerSO.FindProperty("nextFruitIconInner").objectReferenceValue = nextFruitIconInner;
         managerSO.ApplyModifiedProperties();
         EditorUtility.SetDirty(manager);
 
         EditorSceneManager.MarkSceneDirty(manager.gameObject.scene);
-        Debug.Log("Polish applied: fruit sprites, merge FX, next-fruit icon.");
+        Debug.Log("Polish applied: circular fruit sprites, merge FX, next-fruit icon.");
     }
 
     static Image EnsureNextFruitIcon(GameManager manager)
@@ -43,7 +41,6 @@ public static class WatermelonPolishSetup
         Image existing = GameObject.Find("NextFruitIcon")?.GetComponent<Image>();
         if (existing != null)
         {
-            EnsureNextFruitIconInner(existing);
             return existing;
         }
 
@@ -85,7 +82,6 @@ public static class WatermelonPolishSetup
         iconRect.anchoredPosition = new Vector2(16f, 0f);
         Image icon = iconObject.AddComponent<Image>();
         icon.preserveAspect = true;
-        EnsureNextFruitIconInner(icon);
 
         if (nextText != null)
         {
@@ -100,30 +96,5 @@ public static class WatermelonPolishSetup
         }
 
         return icon;
-    }
-
-    static Image EnsureNextFruitIconInner(Image nextFruitIcon)
-    {
-        if (nextFruitIcon == null)
-        {
-            return null;
-        }
-
-        Transform existing = nextFruitIcon.transform.Find("Icon");
-        if (existing != null)
-        {
-            return existing.GetComponent<Image>();
-        }
-
-        GameObject innerIconObject = new GameObject("Icon");
-        innerIconObject.transform.SetParent(nextFruitIcon.transform, false);
-        RectTransform innerIconRect = innerIconObject.AddComponent<RectTransform>();
-        innerIconRect.anchorMin = Vector2.zero;
-        innerIconRect.anchorMax = Vector2.one;
-        innerIconRect.offsetMin = new Vector2(8f, 8f);
-        innerIconRect.offsetMax = new Vector2(-8f, -8f);
-        Image innerImage = innerIconObject.AddComponent<Image>();
-        innerImage.preserveAspect = true;
-        return innerImage;
     }
 }
