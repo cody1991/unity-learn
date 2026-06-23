@@ -15,7 +15,7 @@ public class power : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Player")) {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Player") && spriteRenderer.enabled) {
             playerController.ApplyPowerup(powerup);
             spriteRenderer.enabled = false;
         }
