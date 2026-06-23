@@ -10,6 +10,8 @@ public class player_controller : MonoBehaviour
 
     SurfaceEffector2D surfaceEffector2D;
 
+    bool canControlPlayer = true;
+
     InputAction moveAction;
     Rigidbody2D rb;
 
@@ -23,8 +25,10 @@ public class player_controller : MonoBehaviour
 
     void Update()
     {
-       rotatePlayer();
-       boostPlayer();
+        if (canControlPlayer) {
+            rotatePlayer();
+            boostPlayer();
+        }
     }
 
     void rotatePlayer() {
