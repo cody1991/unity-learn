@@ -487,7 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f48d92e9f72d4b89874ee962f27b117, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::player_controller
-  torqueAmount: 1
+  torqueAmount: 2
 --- !u!58 &802854330
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -536,6 +536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1092227ad7977448999b747ff493437a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::crash
+  crashEffect: {fileID: 1426519502}
   reloadDelay: 1
 --- !u!1 &991599967
 GameObject:
@@ -10547,6 +10548,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72e2c6de73e7452a8da8b57f218daa9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::finish_line
+  finishEffect: {fileID: 1140517405}
   reloadDelay: 1
 --- !u!1 &2059587726
 GameObject:
