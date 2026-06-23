@@ -6,14 +6,18 @@ public class power : MonoBehaviour
     
     player_controller playerController;
 
+    SpriteRenderer spriteRenderer;
+
     void Start() {
         playerController = FindAnyObjectByType<player_controller>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.layer == LayerMask.NameToLayer("Player")) {
             playerController.ApplyPowerup(powerup);
-            
+            spriteRenderer.enabled = false;
         }
     }
 }
