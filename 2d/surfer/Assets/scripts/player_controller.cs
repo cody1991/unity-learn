@@ -69,4 +69,17 @@ public class player_controller : MonoBehaviour
             surfaceEffector2D.speed = baseSpeed;
         }
     }
+
+    public void ApplyPowerup(powerup powerup) {
+
+        switch (powerup.GetPowerupName()) {
+            case "speed":
+                boostSpeed += powerup.GetValueChange();
+                baseSpeed += powerup.GetValueChange();
+                break;
+            case "torque":
+                torqueAmount += powerup.GetValueChange();
+                break;
+        }
+    }
 }
