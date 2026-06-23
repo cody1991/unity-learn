@@ -161,7 +161,7 @@ public static class WatermelonGameSetup
         detector = zone.AddComponent<GameOverDetector>();
     }
 
-    static void CreateUI(out ScoreBoard scoreBoard, out GameObject gameOverPanel, out Text nextFruitText, out Image nextFruitIcon, out Image nextFruitIconInner)
+    static void CreateUI(out ScoreBoard scoreBoard, out GameObject gameOverPanel, out Text nextFruitText, out Image nextFruitIcon)
     {
         GameObject canvasObject = new GameObject("Canvas");
         Canvas canvas = canvasObject.AddComponent<Canvas>();
@@ -329,7 +329,6 @@ public static class WatermelonGameSetup
         managerSO.FindProperty("gameOverPanel").objectReferenceValue = gameOverPanel;
         managerSO.FindProperty("nextFruitText").objectReferenceValue = nextFruitText;
         managerSO.FindProperty("nextFruitIcon").objectReferenceValue = nextFruitIcon;
-        managerSO.FindProperty("nextFruitIconInner").objectReferenceValue = nextFruitIconInner;
         managerSO.FindProperty("mergeFeedback").objectReferenceValue = mergeFeedback;
         managerSO.ApplyModifiedProperties();
         EditorUtility.SetDirty(manager);
