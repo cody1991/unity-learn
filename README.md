@@ -15,3 +15,10 @@ A simple Unity 2D surfing demo.
 - Project path: `2d/surfer`
 - Unity Play: https://play.unity.com/en/games/4b6abd5b-3c6b-464e-b9cc-24d0186d1ded/surfer-02
 
+## Watermelon
+
+A Suika-style fruit merging game (合成大西瓜).
+
+- Project path: `2d/watermelon`
+- Open in Unity 6, then run **Watermelon → Setup Game Scene** before playing
+
