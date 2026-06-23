@@ -5646,6 +5646,7 @@ MonoBehaviour:
   torqueAmount: 300
   baseSpeed: 15
   boostSpeed: 20
+  canControlPlayer: 1
 --- !u!58 &802854330
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class player_controller : MonoBehaviour
 
     SurfaceEffector2D surfaceEffector2D;
 
-    bool canControlPlayer = true;
+    public bool canControlPlayer = true;
 
     InputAction moveAction;
     Rigidbody2D rb;

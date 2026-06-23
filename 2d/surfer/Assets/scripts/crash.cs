@@ -4,17 +4,13 @@ using UnityEngine.SceneManagement;
 public class crash : MonoBehaviour
 {
     [SerializeField] ParticleSystem crashEffect;
-    [SerializeField] float reloadDelay = 0.5f;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] float reloadDelay = 10f;
+
+    player_controller playerController;
+
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        playerController = FindFirstObjectByType<player_controller>();
     }
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -23,6 +19,7 @@ public class crash : MonoBehaviour
         if (other.gameObject.layer == layerIndex) {
             Invoke("ReloadScene", reloadDelay);
             crashEffect.Play();
+            playerController.canControlPlayer = false;
         }
     }
 
