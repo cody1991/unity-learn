@@ -165,11 +165,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 115
-        width: 35
-        height: 33
+        y: 116
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -186,12 +186,12 @@ TextureImporter:
       name: SPA_Background_1
       rect:
         serializedVersion: 2
-        x: 32
-        y: 113
-        width: 40
-        height: 35
+        x: 38
+        y: 116
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -208,12 +208,12 @@ TextureImporter:
       name: SPA_Background_2
       rect:
         serializedVersion: 2
-        x: 34
-        y: 74
-        width: 44
-        height: 41
+        x: 76
+        y: 116
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -230,12 +230,12 @@ TextureImporter:
       name: SPA_Background_3
       rect:
         serializedVersion: 2
-        x: 74
-        y: 113
-        width: 37
-        height: 35
+        x: 114
+        y: 116
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -252,12 +252,12 @@ TextureImporter:
       name: SPA_Background_4
       rect:
         serializedVersion: 2
-        x: 74
-        y: 74
-        width: 39
-        height: 39
+        x: 0
+        y: 78
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -274,12 +274,12 @@ TextureImporter:
       name: SPA_Background_5
       rect:
         serializedVersion: 2
-        x: 108
-        y: 74
-        width: 40
-        height: 41
+        x: 38
+        y: 78
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -296,12 +296,12 @@ TextureImporter:
       name: SPA_Background_6
       rect:
         serializedVersion: 2
-        x: 111
-        y: 113
-        width: 36
-        height: 35
+        x: 76
+        y: 78
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -318,12 +318,12 @@ TextureImporter:
       name: SPA_Background_7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 74
-        width: 39
-        height: 37
+        x: 114
+        y: 78
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -340,12 +340,12 @@ TextureImporter:
       name: SPA_Background_8
       rect:
         serializedVersion: 2
-        x: 34
-        y: 37
-        width: 39
-        height: 38
+        x: 0
+        y: 40
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -362,12 +362,12 @@ TextureImporter:
       name: SPA_Background_9
       rect:
         serializedVersion: 2
-        x: 72
-        y: 36
-        width: 42
-        height: 41
+        x: 38
+        y: 40
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -384,12 +384,12 @@ TextureImporter:
       name: SPA_Background_10
       rect:
         serializedVersion: 2
-        x: 111
-        y: 38
-        width: 36
-        height: 37
+        x: 76
+        y: 40
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -406,12 +406,12 @@ TextureImporter:
       name: SPA_Background_11
       rect:
         serializedVersion: 2
-        x: 0
-        y: 36
-        width: 36
-        height: 37
+        x: 114
+        y: 40
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -429,11 +429,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 37
-        height: 40
+        y: 2
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -450,12 +450,12 @@ TextureImporter:
       name: SPA_Background_13
       rect:
         serializedVersion: 2
-        x: 35
-        y: 0
-        width: 41
-        height: 39
+        x: 38
+        y: 2
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -472,12 +472,12 @@ TextureImporter:
       name: SPA_Background_14
       rect:
         serializedVersion: 2
-        x: 73
-        y: 0
-        width: 43
-        height: 40
+        x: 76
+        y: 2
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -494,12 +494,12 @@ TextureImporter:
       name: SPA_Background_15
       rect:
         serializedVersion: 2
-        x: 111
-        y: 1
-        width: 37
-        height: 39
+        x: 114
+        y: 2
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -512,33 +512,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: SPA_Background_16
-      rect:
-        serializedVersion: 2
-        x: 108
-        y: 3
-        width: 6
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 83671da0a8d95d390800000000000000
-      internalID: -7794150363882228168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c70a88211b2dd49b7ba54649228915ad
     internalID: 0
     vertices: []
     indices: 
@@ -546,7 +524,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":6.0,"y":6.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       SPA_Background_0: 2756263974107484129
       SPA_Background_1: 2651577873023021335
@@ -556,7 +536,6 @@ TextureImporter:
       SPA_Background_13: -1841546627233596243
       SPA_Background_14: -4600983142542328793
       SPA_Background_15: 6699997452376039800
-      SPA_Background_16: -7794150363882228168
       SPA_Background_2: -1103572381186738075
       SPA_Background_3: -3356621079479179389
       SPA_Background_4: -3418837530316711795
