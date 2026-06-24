@@ -200,12 +200,12 @@ TextureImporter:
       name: SPA_Player_Bronze_0
       rect:
         serializedVersion: 2
-        x: 3
-        y: 195
-        width: 26
-        height: 30
+        x: 0
+        y: 196
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -222,12 +222,12 @@ TextureImporter:
       name: SPA_Player_Bronze_1
       rect:
         serializedVersion: 2
-        x: 43
-        y: 195
-        width: 26
-        height: 30
+        x: 38
+        y: 196
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -244,12 +244,12 @@ TextureImporter:
       name: SPA_Player_Bronze_2
       rect:
         serializedVersion: 2
-        x: 79
-        y: 195
-        width: 26
+        x: 76
+        y: 196
+        width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -266,12 +266,12 @@ TextureImporter:
       name: SPA_Player_Bronze_3
       rect:
         serializedVersion: 2
-        x: 117
-        y: 195
-        width: 26
-        height: 30
+        x: 114
+        y: 196
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -288,12 +288,12 @@ TextureImporter:
       name: SPA_Player_Bronze_4
       rect:
         serializedVersion: 2
-        x: 153
-        y: 195
-        width: 26
-        height: 30
+        x: 152
+        y: 196
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -310,12 +310,12 @@ TextureImporter:
       name: SPA_Player_Bronze_5
       rect:
         serializedVersion: 2
-        x: 3
-        y: 157
-        width: 24
-        height: 30
+        x: 0
+        y: 158
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -332,12 +332,12 @@ TextureImporter:
       name: SPA_Player_Bronze_6
       rect:
         serializedVersion: 2
-        x: 39
-        y: 157
-        width: 26
-        height: 28
+        x: 38
+        y: 158
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -354,12 +354,12 @@ TextureImporter:
       name: SPA_Player_Bronze_7
       rect:
         serializedVersion: 2
-        x: 79
-        y: 157
-        width: 24
-        height: 28
+        x: 76
+        y: 158
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -376,12 +376,12 @@ TextureImporter:
       name: SPA_Player_Bronze_8
       rect:
         serializedVersion: 2
-        x: 117
-        y: 157
-        width: 24
-        height: 30
+        x: 114
+        y: 158
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -398,12 +398,12 @@ TextureImporter:
       name: SPA_Player_Bronze_9
       rect:
         serializedVersion: 2
-        x: 7
-        y: 119
-        width: 24
-        height: 28
+        x: 0
+        y: 120
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -420,12 +420,12 @@ TextureImporter:
       name: SPA_Player_Bronze_10
       rect:
         serializedVersion: 2
-        x: 43
-        y: 121
-        width: 24
-        height: 18
+        x: 38
+        y: 120
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -442,12 +442,12 @@ TextureImporter:
       name: SPA_Player_Bronze_11
       rect:
         serializedVersion: 2
-        x: 81
-        y: 121
-        width: 22
-        height: 22
+        x: 76
+        y: 120
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -464,12 +464,12 @@ TextureImporter:
       name: SPA_Player_Bronze_12
       rect:
         serializedVersion: 2
-        x: 117
-        y: 121
-        width: 22
-        height: 20
+        x: 114
+        y: 120
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -486,12 +486,12 @@ TextureImporter:
       name: SPA_Player_Bronze_13
       rect:
         serializedVersion: 2
-        x: 155
-        y: 119
-        width: 26
-        height: 28
+        x: 152
+        y: 120
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -508,12 +508,12 @@ TextureImporter:
       name: SPA_Player_Bronze_14
       rect:
         serializedVersion: 2
-        x: 5
-        y: 81
-        width: 24
-        height: 30
+        x: 0
+        y: 82
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -530,12 +530,12 @@ TextureImporter:
       name: SPA_Player_Bronze_15
       rect:
         serializedVersion: 2
-        x: 43
-        y: 81
-        width: 24
-        height: 30
+        x: 38
+        y: 82
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -552,12 +552,12 @@ TextureImporter:
       name: SPA_Player_Bronze_16
       rect:
         serializedVersion: 2
-        x: 3
-        y: 47
-        width: 24
-        height: 30
+        x: 0
+        y: 44
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -574,12 +574,12 @@ TextureImporter:
       name: SPA_Player_Bronze_17
       rect:
         serializedVersion: 2
-        x: 39
-        y: 47
-        width: 26
-        height: 30
+        x: 38
+        y: 44
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -596,12 +596,12 @@ TextureImporter:
       name: SPA_Player_Bronze_18
       rect:
         serializedVersion: 2
-        x: 87
-        y: 47
-        width: 22
-        height: 30
+        x: 76
+        y: 44
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -618,12 +618,12 @@ TextureImporter:
       name: SPA_Player_Bronze_19
       rect:
         serializedVersion: 2
-        x: 3
-        y: 5
-        width: 24
-        height: 30
+        x: 0
+        y: 6
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -640,12 +640,12 @@ TextureImporter:
       name: SPA_Player_Bronze_20
       rect:
         serializedVersion: 2
-        x: 43
-        y: 5
-        width: 22
-        height: 30
+        x: 38
+        y: 6
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -662,12 +662,12 @@ TextureImporter:
       name: SPA_Player_Bronze_21
       rect:
         serializedVersion: 2
-        x: 81
-        y: 7
-        width: 22
-        height: 30
+        x: 76
+        y: 6
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -684,12 +684,12 @@ TextureImporter:
       name: SPA_Player_Bronze_22
       rect:
         serializedVersion: 2
-        x: 119
-        y: 9
-        width: 22
-        height: 30
+        x: 114
+        y: 6
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -706,12 +706,12 @@ TextureImporter:
       name: SPA_Player_Bronze_23
       rect:
         serializedVersion: 2
-        x: 157
-        y: 7
-        width: 22
-        height: 30
+        x: 152
+        y: 6
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -728,12 +728,12 @@ TextureImporter:
       name: SPA_Player_Bronze_24
       rect:
         serializedVersion: 2
-        x: 193
-        y: 7
-        width: 24
-        height: 30
+        x: 190
+        y: 6
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -750,12 +750,12 @@ TextureImporter:
       name: SPA_Player_Bronze_25
       rect:
         serializedVersion: 2
-        x: 229
-        y: 7
-        width: 26
-        height: 30
+        x: 228
+        y: 6
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -772,12 +772,12 @@ TextureImporter:
       name: SPA_Player_Bronze_26
       rect:
         serializedVersion: 2
-        x: 267
-        y: 11
-        width: 26
-        height: 28
+        x: 266
+        y: 6
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -794,12 +794,12 @@ TextureImporter:
       name: SPA_Player_Bronze_27
       rect:
         serializedVersion: 2
-        x: 305
-        y: 11
-        width: 26
-        height: 28
+        x: 304
+        y: 6
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -816,12 +816,12 @@ TextureImporter:
       name: SPA_Player_Bronze_28
       rect:
         serializedVersion: 2
-        x: 343
-        y: 9
-        width: 26
-        height: 28
+        x: 342
+        y: 6
+        width: 32
+        height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -838,7 +838,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 35e359ecfe17c4a56bf34e2127630dac
     internalID: 0
     vertices: []
     indices: 
@@ -846,7 +846,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":32.0,"y":32.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":6.0,"y":6.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
       SPA_Player_Bronze_0: 2488088830809567171
       SPA_Player_Bronze_1: -2640284806513076915
