@@ -11,6 +11,10 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] Vector2 deathKick = new Vector2(0f, 20f);
     Vector2 startPosition = new Vector2(-11.525f, 0.596f);
 
+    // 存档放在静态变量（内存）里：场景重载（死亡复活）时还在，刷新浏览器时会被清空
+    static bool hasSavedPosition = false;
+    static Vector2 savedPosition;
+
     Rigidbody2D myRigidbody;
     Vector2 moveInput;
 
@@ -144,28 +148,21 @@ public class PlayerMove : MonoBehaviour
 
     public void SavePosition() {
         // 按钮调用这里保存安全位置，死亡重载后会从这个位置恢复
-        PlayerPrefs.SetFloat("playerX", transform.position.x);
-        PlayerPrefs.SetFloat("playerY", transform.position.y);
-        PlayerPrefs.Save();
+        savedPosition = transform.position;
+        hasSavedPosition = true;
     }
 
     public void LoadPosition() {
-        // 第一次进入游戏或清除存档后，回到关卡最初的位置
-        if (!PlayerPrefs.HasKey("playerX")) {
+        // 没有存档（首次进入或刷新浏览器后）回到关卡最初的位置
+        if (!hasSavedPosition) {
             transform.position = new Vector3(startPosition.x, startPosition.y, transform.position.z);
             return;
         }
 
-        transform.position = new Vector3(
-            PlayerPrefs.GetFloat("playerX"),
-            PlayerPrefs.GetFloat("playerY"),
-            transform.position.z);
+        transform.position = new Vector3(savedPosition.x, savedPosition.y, transform.position.z);
     }
 
     public void ClearSave() {
-        PlayerPrefs.DeleteKey("playerX");
-        PlayerPrefs.DeleteKey("playerY");
-        PlayerPrefs.DeleteKey("playerZ");
-        PlayerPrefs.Save();
+        hasSavedPosition = false;
     }
 }
