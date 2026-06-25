@@ -33,6 +33,7 @@ public class PlayerMove : MonoBehaviour
         
 
         gravityScaleAtStart = myRigidbody.gravityScale;
+        LoadPosition();
     }
 
     // Update is called once per frame
@@ -133,5 +134,25 @@ public class PlayerMove : MonoBehaviour
 
     void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void SavePosition() {
+        // 按钮调用这里保存安全位置，死亡重载后会从这个位置恢复
+        PlayerPrefs.SetFloat("playerX", transform.position.x);
+        PlayerPrefs.SetFloat("playerY", transform.position.y);
+        PlayerPrefs.SetFloat("playerZ", transform.position.z);
+        PlayerPrefs.Save();
+    }
+
+    public void LoadPosition() {
+        // 第一次进入游戏还没有存档时，保留场景中的初始位置
+        if (!PlayerPrefs.HasKey("playerX")) {
+            return;
+        }
+
+        transform.position = new Vector3(
+            PlayerPrefs.GetFloat("playerX"),
+            PlayerPrefs.GetFloat("playerY"),
+            PlayerPrefs.GetFloat("playerZ"));
     }
 }

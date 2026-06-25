@@ -15239,7 +15239,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 267168393}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 440574311}
+        m_TargetAssemblyTypeName: PlayerMove, Assembly-CSharp
+        m_MethodName: SavePosition
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &267168393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15418,6 +15430,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8725745937805476224, guid: 97fe57687518348c1a570f0cd7fd1760, type: 3}
   m_PrefabInstance: {fileID: 1869601965}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &440574311 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7300468974152933374, guid: 97fe57687518348c1a570f0cd7fd1760, type: 3}
+  m_PrefabInstance: {fileID: 1869601965}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20e078262d29f4c509a4db1d6254e07b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerMove
 --- !u!1 &454403720
 GameObject:
   m_ObjectHideFlags: 0
