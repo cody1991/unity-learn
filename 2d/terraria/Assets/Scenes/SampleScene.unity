@@ -4822,7 +4822,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2345001668069939697, guid: 97fe57687518348c1a570f0cd7fd1760, type: 3}
       propertyPath: m_GravityScale
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2345001668069939697, guid: 97fe57687518348c1a570f0cd7fd1760, type: 3}
+      propertyPath: m_CollisionDetection
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7300468974152933374, guid: 97fe57687518348c1a570f0cd7fd1760, type: 3}
+      propertyPath: jumpSpeed
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7944535396325840901, guid: 97fe57687518348c1a570f0cd7fd1760, type: 3}
       propertyPath: m_Name
