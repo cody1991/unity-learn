@@ -110,7 +110,9 @@ public class PlayerMove : MonoBehaviour
         if (!isAlive) {
             return;
         }
-        Debug.Log("[PlayerMove] OnAttack 开火，玩家位置: " + transform.position, this);
+        if (!value.isPressed) {
+            return;
+        }
         // instantiate 实例化一个游戏对象, 第一个参数是游戏对象, 第二个参数是位置, 第三个参数是旋转
         // gun.position 是枪的位置, 它大概是枪的中心位置
         Instantiate(bullet, gun.position, transform.rotation);
@@ -118,7 +120,6 @@ public class PlayerMove : MonoBehaviour
 
     void Die() {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("enemy", "hazards", "Water"))) {
-            Debug.Log("[PlayerMove] Die() 触发，碰到了 enemy/hazards/Water", this);
             isAlive = false;
             myAnimator.SetTrigger("Dying");
             myRigidbody.linearVelocity = deathKick;
@@ -131,7 +132,6 @@ public class PlayerMove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.layer == LayerMask.NameToLayer("doors")) {
-            Debug.Log("[PlayerMove] 撞门触发胜利，来源: " + other.name, other);
             // 胜利：清掉存档，重载后回到关卡最初的位置
             ClearSave();
             Invoke("RestartGame", 0f);
@@ -150,7 +150,6 @@ public class PlayerMove : MonoBehaviour
     }
 
     public void LoadPosition() {
-        Debug.Log("[PlayerMove] LoadPosition 被调用（场景刚加载）", this);
         // 第一次进入游戏或清除存档后，回到关卡最初的位置
         if (!PlayerPrefs.HasKey("playerX")) {
             transform.position = new Vector3(startPosition.x, startPosition.y, transform.position.z);
@@ -161,11 +160,6 @@ public class PlayerMove : MonoBehaviour
             PlayerPrefs.GetFloat("playerX"),
             PlayerPrefs.GetFloat("playerY"),
             transform.position.z);
-    }
-
-    public void ResetPosition() {
-        ClearSave();
-        RestartGame();
     }
 
     public void ClearSave() {
