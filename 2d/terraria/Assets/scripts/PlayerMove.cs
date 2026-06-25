@@ -15,6 +15,8 @@ public class PlayerMove : MonoBehaviour
     BoxCollider2D myFeetCollider;
     float gravityScaleAtStart;
 
+    bool isAlive = true;
+
     void Start()
     {
         // 获取 Rigidbody2D 组件
@@ -29,16 +31,27 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!isAlive) {
+            return;
+        }
         Run();
         FlipSprite();
         ClimbLadder();
+
+        Die();
     }
 
     void OnMove(InputValue value) {
+        if (!isAlive) {
+            return;
+        }
         moveInput = value.Get<Vector2>();
     }
 
     void OnJump(InputValue value) {
+        if (!isAlive) {
+            return;
+        }
         // 跳跃逻辑
         bool isGround = myFeetCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
         if (!isGround) {
@@ -79,5 +92,12 @@ public class PlayerMove : MonoBehaviour
 
         bool isClimbing = Mathf.Abs(myRigidbody.linearVelocity.y) > Mathf.Epsilon;
         myAnimator.SetBool("isClimbing", isClimbing);
+    }
+
+
+    void Die() {
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("enemy"))) {
+            isAlive = false;
+        }
     }
 }
