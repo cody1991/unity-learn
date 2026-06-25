@@ -22,8 +22,17 @@ public class Enemy : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D other) {
+        if (other.gameObject.layer != LayerMask.NameToLayer("Ground")) {
+            return;
+        }
+
+        // 脚下探边 Box 还在地面上时，说明是 Capsule 触发的 Exit，忽略
+        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Ground"))) {
+            return;
+        }
+
         moveSpeed = -moveSpeed;
-        transform.localScale = new Vector2((Mathf.Sign(moveSpeed)), 1f);
+        transform.localScale = new Vector2(Mathf.Sign(moveSpeed), 1f);
     }
 
 }
