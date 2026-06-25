@@ -46,7 +46,10 @@ public class PlayerMove : MonoBehaviour
         ClimbLadder();
 
         Die();
+
     }
+
+    
 
     void OnMove(InputValue value) {
         if (!isAlive) {
@@ -117,11 +120,18 @@ public class PlayerMove : MonoBehaviour
             myRigidbody.linearVelocity = deathKick;
 
             // 三秒后重启
-            Invoke("Restart", 1f);
+            Invoke("RestartGame", 1f);
         }
     }
 
-    void Restart() {
+
+    void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.layer == LayerMask.NameToLayer("doors")) {
+            Invoke("RestartGame", 1f);
+        }
+    }
+
+    void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

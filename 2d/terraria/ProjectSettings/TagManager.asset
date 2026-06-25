@@ -20,7 +20,7 @@ TagManager:
   - enemy
   - hazards
   - bullets
-  - 
+  - doors
   - 
   - 
   - 
@@ -62,6 +62,9 @@ TagManager:
     locked: 0
   - name: hazard
     uniqueID: 68724287
+    locked: 0
+  - name: doors
+    uniqueID: 346896485
     locked: 0
   - name: player
     uniqueID: 1967906839
