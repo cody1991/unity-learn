@@ -9,6 +9,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(0f, 20f);
+    Vector2 startPosition = new Vector2(-11.525f, 0.596f);
 
     Rigidbody2D myRigidbody;
     Vector2 moveInput;
@@ -128,6 +129,8 @@ public class PlayerMove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.layer == LayerMask.NameToLayer("doors")) {
+            // 胜利：清掉存档，重载后回到关卡最初的位置
+            ClearSave();
             Invoke("RestartGame", 0f);
         }
     }
@@ -140,19 +143,31 @@ public class PlayerMove : MonoBehaviour
         // 按钮调用这里保存安全位置，死亡重载后会从这个位置恢复
         PlayerPrefs.SetFloat("playerX", transform.position.x);
         PlayerPrefs.SetFloat("playerY", transform.position.y);
-        PlayerPrefs.SetFloat("playerZ", transform.position.z);
         PlayerPrefs.Save();
     }
 
     public void LoadPosition() {
-        // 第一次进入游戏还没有存档时，保留场景中的初始位置
+        // 第一次进入游戏或清除存档后，回到关卡最初的位置
         if (!PlayerPrefs.HasKey("playerX")) {
+            transform.position = new Vector3(startPosition.x, startPosition.y, transform.position.z);
             return;
         }
 
         transform.position = new Vector3(
             PlayerPrefs.GetFloat("playerX"),
             PlayerPrefs.GetFloat("playerY"),
-            PlayerPrefs.GetFloat("playerZ"));
+            transform.position.z);
+    }
+
+    public void ResetPosition() {
+        ClearSave();
+        RestartGame();
+    }
+
+    public void ClearSave() {
+        PlayerPrefs.DeleteKey("playerX");
+        PlayerPrefs.DeleteKey("playerY");
+        PlayerPrefs.DeleteKey("playerZ");
+        PlayerPrefs.Save();
     }
 }
