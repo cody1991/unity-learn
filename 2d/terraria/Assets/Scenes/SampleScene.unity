@@ -4899,7 +4899,7 @@ GameObject:
   - component: {fileID: 1891966685}
   - component: {fileID: 1891966687}
   - component: {fileID: 1891966686}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: here_platforms
   m_TagString: Untagged
   m_Icon: {fileID: 0}

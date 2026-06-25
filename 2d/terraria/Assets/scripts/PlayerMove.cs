@@ -10,12 +10,14 @@ public class PlayerMove : MonoBehaviour
     Vector2 moveInput;
 
     Animator myAnimator;
+    CapsuleCollider2D myBodyCollider;
 
     void Start()
     {
         // 获取 Rigidbody2D 组件
         myRigidbody = GetComponent<Rigidbody2D>();
         myAnimator = GetComponent<Animator>();
+        myBodyCollider = GetComponent<CapsuleCollider2D>();
     }
 
     // Update is called once per frame
@@ -31,13 +33,13 @@ public class PlayerMove : MonoBehaviour
 
     void OnJump(InputValue value) {
         // 跳跃逻辑
-        if (value.isPressed) {
-            Jump();
+        bool isGround = myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Ground"));
+        if (!isGround) {
+            return;
         }
-    }
-
-    void Jump() {
-        myRigidbody.linearVelocity += new Vector2(0f, jumpSpeed);
+        if (value.isPressed) {
+             myRigidbody.linearVelocity += new Vector2(0f, jumpSpeed);
+        }
     }
 
     void Run() {
