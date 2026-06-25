@@ -127,7 +127,7 @@ public class PlayerMove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.layer == LayerMask.NameToLayer("doors")) {
-            Invoke("RestartGame", 1f);
+            Invoke("RestartGame", 0f);
         }
     }
 
