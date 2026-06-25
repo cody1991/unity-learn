@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -114,6 +115,13 @@ public class PlayerMove : MonoBehaviour
             isAlive = false;
             myAnimator.SetTrigger("Dying");
             myRigidbody.linearVelocity = deathKick;
+
+            // 三秒后重启
+            Invoke("Restart", 1f);
         }
+    }
+
+    void Restart() {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
