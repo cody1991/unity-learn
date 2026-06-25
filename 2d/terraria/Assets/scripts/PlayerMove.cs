@@ -19,6 +19,9 @@ public class PlayerMove : MonoBehaviour
 
     bool isAlive = true;
 
+    [SerializeField] GameObject bullet;
+    [SerializeField] Transform gun; 
+
     void Start()
     {
         // 获取 Rigidbody2D 组件
@@ -96,7 +99,15 @@ public class PlayerMove : MonoBehaviour
         bool isClimbing = Mathf.Abs(myRigidbody.linearVelocity.y) > Mathf.Epsilon;
         myAnimator.SetBool("isClimbing", isClimbing);
     }
-
+    
+    void OnAttack(InputValue value) {
+        if (!isAlive) {
+            return;
+        }
+        // instantiate 实例化一个游戏对象, 第一个参数是游戏对象, 第二个参数是位置, 第三个参数是旋转
+        // gun.position 是枪的位置, 它大概是枪的中心位置
+        Instantiate(bullet, gun.position, transform.rotation);
+    }
 
     void Die() {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("enemy", "hazards", "Water"))) {

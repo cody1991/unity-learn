@@ -16671,6 +16671,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7300468974152933374, guid: 97fe57687518348c1a570f0cd7fd1760, type: 3}
+      propertyPath: gun
+      value: 
+      objectReference: {fileID: 1602773682}
+    - target: {fileID: 7300468974152933374, guid: 97fe57687518348c1a570f0cd7fd1760, type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 6128787465937313156, guid: 34cb5aad5feba44f79cb295f977d4000, type: 3}
+    - target: {fileID: 7300468974152933374, guid: 97fe57687518348c1a570f0cd7fd1760, type: 3}
       propertyPath: jumpSpeed
       value: 25
       objectReference: {fileID: 0}
