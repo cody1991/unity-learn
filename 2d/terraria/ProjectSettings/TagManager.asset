@@ -21,7 +21,7 @@ TagManager:
   - hazards
   - bullets
   - doors
-  - 
+  - coins
   - 
   - 
   - 
@@ -65,6 +65,9 @@ TagManager:
     locked: 0
   - name: hazard
     uniqueID: 68724287
+    locked: 0
+  - name: coins
+    uniqueID: 3513832003
     locked: 0
   - name: player
     uniqueID: 1967906839
