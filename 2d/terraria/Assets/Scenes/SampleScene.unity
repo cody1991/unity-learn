@@ -15671,23 +15671,6 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
---- !u!1 &614685526 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5475738359607773058, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
-  m_PrefabInstance: {fileID: 3638817021277171476}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &614685531
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 614685526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea3bbcdaf0b8640c8ad548ba627bc1db, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoinPickUp
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -22940,17 +22923,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: coin
       objectReference: {fileID: 0}
-    - target: {fileID: 7757767018703033573, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 8120004867215518250, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9.93
+      value: -14.43
       objectReference: {fileID: 0}
     - target: {fileID: 8120004867215518250, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.46
+      value: 0.73
       objectReference: {fileID: 0}
     - target: {fileID: 8120004867215518250, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22987,10 +22966,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5475738359607773058, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 614685531}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
 --- !u!1001 &3926882954327352291
 PrefabInstance:
