@@ -9,7 +9,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField] float jumpSpeed = 5f;
     [SerializeField] float climbSpeed = 5f;
     [SerializeField] Vector2 deathKick = new Vector2(0f, 20f);
-    Vector2 startPosition = new Vector2(-11.525f, 0.596f);
 
     // 存档放在静态变量（内存）里：场景重载（死亡复活）时还在，刷新浏览器时会被清空
     static bool hasSavedPosition = false;
@@ -134,14 +133,6 @@ public class PlayerMove : MonoBehaviour
     }
 
 
-    void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.layer == LayerMask.NameToLayer("doors")) {
-            // 胜利：清掉存档，重载后回到关卡最初的位置
-            ClearSave();
-            Invoke("RestartGame", 0f);
-        }
-    }
-
     void RestartGame() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -153,9 +144,8 @@ public class PlayerMove : MonoBehaviour
     }
 
     public void LoadPosition() {
-        // 没有存档（首次进入或刷新浏览器后）回到关卡最初的位置
+        // 没有存档时使用场景里摆放的出生位置
         if (!hasSavedPosition) {
-            transform.position = new Vector3(startPosition.x, startPosition.y, transform.position.z);
             return;
         }
 

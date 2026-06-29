@@ -23140,7 +23140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4521601223803656687, guid: 6da20e1f8662345b8a05db500008f388, type: 3}
       propertyPath: m_SortingLayer
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4521601223803656687, guid: 6da20e1f8662345b8a05db500008f388, type: 3}
       propertyPath: m_SortingLayerID
@@ -23153,6 +23153,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 570917667059425865, guid: 6da20e1f8662345b8a05db500008f388, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3926882954327352293}
+    - targetCorrespondingSourceObject: {fileID: 570917667059425865, guid: 6da20e1f8662345b8a05db500008f388, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3926882954327352294}
   m_SourcePrefab: {fileID: 100100000, guid: 6da20e1f8662345b8a05db500008f388, type: 3}
 --- !u!1 &3926882954327352292 stripped
 GameObject:
@@ -23205,6 +23208,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.3341694, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &3926882954327352294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3926882954327352292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26ded26ea027b45dbaf1ae38841668ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Door
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
