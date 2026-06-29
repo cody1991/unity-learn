@@ -4,7 +4,7 @@ public class Bullet : MonoBehaviour
 {
    Rigidbody2D myRigidbody;
    [SerializeField] float bulletSpeed = 20f;
-
+   [SerializeField] int pointsForEnemy = 100;
    PlayerMove player;
    float xSpeed;
 
@@ -26,6 +26,8 @@ public class Bullet : MonoBehaviour
    void OnTriggerEnter2D(Collider2D other) {
     if (other.CompareTag("enemy")) {
         Destroy(other.gameObject);
+        GameSession gameSession = FindAnyObjectByType<GameSession>();
+        gameSession.AddToScore(pointsForEnemy);
     }
     Destroy(gameObject); 
    }
