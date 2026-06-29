@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: pointsForCoinPickUp
       value: 200
       objectReference: {fileID: 0}
+    - target: {fileID: 4463099719796980805, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
+      propertyPath: m_Volume
+      value: 0.963
+      objectReference: {fileID: 0}
     - target: {fileID: 5475738359607773058, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
       propertyPath: m_Name
       value: coin (2) Variant
@@ -26,11 +30,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8120004867215518250, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -344.05792
+      value: -348.44
       objectReference: {fileID: 0}
     - target: {fileID: 8120004867215518250, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -323.59943
+      value: -324.85
       objectReference: {fileID: 0}
     - target: {fileID: 8120004867215518250, guid: 9d7cd1ef148ab454c9990eb77c040d41, type: 3}
       propertyPath: m_LocalPosition.z
