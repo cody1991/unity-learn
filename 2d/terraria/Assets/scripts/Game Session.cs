@@ -54,7 +54,7 @@ public class GameSession : MonoBehaviour
     void Start()
     {
         livesText.text = playerLives.ToString();
-        scoreText.text = score.ToString();
+        scoreText.text = "0";
     }
 
     // Update is called once per frame

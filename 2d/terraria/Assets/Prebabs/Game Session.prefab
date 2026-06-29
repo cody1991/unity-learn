@@ -423,3 +423,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameSession
   playerLives: 3
+  livesText: {fileID: 7222586890510009522}
+  scoreText: {fileID: 5827968030346636361}
