@@ -6,6 +6,7 @@ public class GameSession : MonoBehaviour
 {
 
     [SerializeField] int playerLives = 3;
+    [SerializeField] int score = 0;
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
 
@@ -43,6 +44,11 @@ public class GameSession : MonoBehaviour
         ReloadCurrentScene();
     }
 
+    public void AddToScore(int pointsToAdd) {
+        score += pointsToAdd;
+        scoreText.text = score.ToString();
+    }
+
     void ReloadCurrentScene() {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
@@ -54,7 +60,7 @@ public class GameSession : MonoBehaviour
     void Start()
     {
         livesText.text = playerLives.ToString();
-        scoreText.text = "0";
+        scoreText.text = score.ToString();
     }
 
     // Update is called once per frame

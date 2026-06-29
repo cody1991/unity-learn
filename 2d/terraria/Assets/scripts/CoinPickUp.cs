@@ -4,6 +4,7 @@ public class CoinPickUp : MonoBehaviour
 {
 
     [SerializeField] AudioClip coinPickUpSFX;
+    [SerializeField] int pointsForCoinPickUp = 100;
 
 
     bool wasCollected = false;
@@ -15,7 +16,8 @@ public class CoinPickUp : MonoBehaviour
             gameObject.SetActive(false);
             Destroy(gameObject);
 
-
+            GameSession gameSession = FindAnyObjectByType<GameSession>();
+            gameSession.AddToScore(pointsForCoinPickUp);
         }
     }
 }
