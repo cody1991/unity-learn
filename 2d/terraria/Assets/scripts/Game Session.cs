@@ -32,15 +32,17 @@ public class GameSession : MonoBehaviour
 
     void TakeLife() {
         playerLives--;
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex);
+        ReloadCurrentScene();
     }
 
     void ResetGameSession() {
+        playerLives = 3;
+        ReloadCurrentScene();
+    }
+
+    void ReloadCurrentScene() {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
-        Destroy(gameObject);
-        playerLives = 3;
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
