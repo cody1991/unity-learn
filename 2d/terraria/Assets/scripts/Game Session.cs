@@ -42,6 +42,11 @@ public class GameSession : MonoBehaviour
     void ResetGameSession() {
         playerLives = 3;
         ReloadCurrentScene();
+
+        ScenePersist scenePersist = FindFirstObjectByType<ScenePersist>();
+        if (scenePersist != null) {
+            scenePersist.ResetScenePersist();
+        }
     }
 
     public void AddToScore(int pointsToAdd) {
@@ -53,7 +58,6 @@ public class GameSession : MonoBehaviour
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
         livesText.text = playerLives.ToString();
-
     }
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created

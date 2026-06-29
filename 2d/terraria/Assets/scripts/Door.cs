@@ -19,6 +19,12 @@ public class Door : MonoBehaviour
         // 加载下一个场景，但是如果当前场景是最后一个场景，就不做任何操作
         if (currentSceneIndex < SceneManager.sceneCountInBuildSettings - 1) {
             player.ClearSave();
+
+            ScenePersist scenePersist = FindFirstObjectByType<ScenePersist>();
+            if (scenePersist != null) {
+                scenePersist.ResetScenePersist();
+            }
+
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
     }
