@@ -129,6 +129,9 @@ public class PlayerMove : MonoBehaviour
 
             // 三秒后重启
             Invoke("RestartGame", 1f);
+
+            GameSession gameSession = FindAnyObjectByType<GameSession>();
+            gameSession.ProcessPlayerDeath();
         }
     }
 
