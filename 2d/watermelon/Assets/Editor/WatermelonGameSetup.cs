@@ -39,6 +39,7 @@ public static class WatermelonGameSetup
         CreateGameOverZone(out GameOverDetector detector);
         CreateUI(out ScoreBoard scoreBoard, out GameObject gameOverPanel, out Text nextFruitText, out Image nextFruitIcon);
         GameManager manager = CreateGameManager(database, scoreBoard, detector, physicsMaterial, gameOverPanel, nextFruitText, nextFruitIcon);
+        WatermelonSkinSetup.AddSkinSetupPanel();
 
         EditorSceneManager.MarkSceneDirty(scene);
         EditorSceneManager.SaveScene(scene);

@@ -44,9 +44,11 @@ public static class WatermelonSkinSetup
         GameObject title = CreateText(panel.transform, "Title", "Customize Fruits", font, 54, TextAnchor.MiddleCenter);
         title.GetComponent<LayoutElement>().preferredHeight = 80f;
 
+        Transform listContent = CreateScrollView(panel.transform);
+
         for (int i = 0; i < database.fruits.Length; i++)
         {
-            CreateFruitRow(panel.transform, database.fruits[i].name, font, out names[i], out previews[i], out uploadButtons[i], out defaultButtons[i]);
+            CreateFruitRow(listContent, database.fruits[i].name, font, out names[i], out previews[i], out uploadButtons[i], out defaultButtons[i]);
         }
 
         GameObject actions = new GameObject("Actions");
@@ -98,6 +100,61 @@ public static class WatermelonSkinSetup
         layout.childForceExpandWidth = true;
 
         return panel;
+    }
+
+    static Transform CreateScrollView(Transform parent)
+    {
+        GameObject scrollView = new GameObject("FruitList");
+        scrollView.transform.SetParent(parent, false);
+        scrollView.AddComponent<RectTransform>();
+        LayoutElement scrollLayout = scrollView.AddComponent<LayoutElement>();
+        scrollLayout.flexibleHeight = 1f;
+
+        Image scrollBg = scrollView.AddComponent<Image>();
+        scrollBg.color = new Color(1f, 1f, 1f, 0.25f);
+
+        ScrollRect scrollRect = scrollView.AddComponent<ScrollRect>();
+        scrollRect.horizontal = false;
+        scrollRect.vertical = true;
+        scrollRect.movementType = ScrollRect.MovementType.Clamped;
+        scrollRect.scrollSensitivity = 30f;
+
+        GameObject viewport = new GameObject("Viewport");
+        viewport.transform.SetParent(scrollView.transform, false);
+        RectTransform viewportRect = viewport.AddComponent<RectTransform>();
+        viewportRect.anchorMin = Vector2.zero;
+        viewportRect.anchorMax = Vector2.one;
+        viewportRect.offsetMin = Vector2.zero;
+        viewportRect.offsetMax = Vector2.zero;
+        viewportRect.pivot = new Vector2(0f, 1f);
+        viewport.AddComponent<Image>().color = new Color(1f, 1f, 1f, 0.01f);
+        Mask mask = viewport.AddComponent<Mask>();
+        mask.showMaskGraphic = false;
+
+        GameObject content = new GameObject("Content");
+        content.transform.SetParent(viewport.transform, false);
+        RectTransform contentRect = content.AddComponent<RectTransform>();
+        contentRect.anchorMin = new Vector2(0f, 1f);
+        contentRect.anchorMax = new Vector2(1f, 1f);
+        contentRect.pivot = new Vector2(0.5f, 1f);
+        contentRect.offsetMin = new Vector2(0f, 0f);
+        contentRect.offsetMax = new Vector2(0f, 0f);
+
+        VerticalLayoutGroup contentLayout = content.AddComponent<VerticalLayoutGroup>();
+        contentLayout.spacing = 12f;
+        contentLayout.padding = new RectOffset(12, 12, 12, 12);
+        contentLayout.childControlHeight = true;
+        contentLayout.childControlWidth = true;
+        contentLayout.childForceExpandHeight = false;
+        contentLayout.childForceExpandWidth = true;
+
+        ContentSizeFitter fitter = content.AddComponent<ContentSizeFitter>();
+        fitter.verticalFit = ContentSizeFitter.FitMode.PreferredSize;
+
+        scrollRect.viewport = viewportRect;
+        scrollRect.content = contentRect;
+
+        return content.transform;
     }
 
     static void CreateFruitRow(Transform parent, string fruitName, Font font, out Text nameText, out Image preview, out Button uploadButton, out Button defaultButton)
