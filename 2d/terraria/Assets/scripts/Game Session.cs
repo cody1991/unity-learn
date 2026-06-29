@@ -12,6 +12,8 @@ public class GameSession : MonoBehaviour
 
         int numberGameSessions = FindObjectsByType<GameSession>(FindObjectsSortMode.None).Length;
 
+        Debug.Log("Number of game sessions: " + numberGameSessions);
+
         if (numberGameSessions > 1) {
             Destroy(gameObject);
         } else {
@@ -30,7 +32,8 @@ public class GameSession : MonoBehaviour
 
     void TakeLife() {
         playerLives--;
-        ResetGameSession();
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(currentSceneIndex);
     }
 
     void ResetGameSession() {
