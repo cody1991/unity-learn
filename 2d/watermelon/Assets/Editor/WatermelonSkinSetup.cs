@@ -1,6 +1,8 @@
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem.UI;
 using UnityEngine.UI;
 
 public static class WatermelonSkinSetup
@@ -17,6 +19,8 @@ public static class WatermelonSkinSetup
             Debug.LogError("Canvas or GameManager not found. Run Watermelon → Setup Game Scene first.");
             return;
         }
+
+        EnsureEventSystem();
 
         GameObject existing = GameObject.Find("FruitSkinSetupPanel");
         if (existing != null)
@@ -41,8 +45,8 @@ public static class WatermelonSkinSetup
         Button[] uploadButtons = new Button[database.fruits.Length];
         Button[] defaultButtons = new Button[database.fruits.Length];
 
-        GameObject title = CreateText(panel.transform, "Title", "Customize Fruits", font, 54, TextAnchor.MiddleCenter);
-        title.GetComponent<LayoutElement>().preferredHeight = 80f;
+        GameObject title = CreateText(panel.transform, "Title", "Customize Fruits", font, 42, TextAnchor.MiddleCenter);
+        title.GetComponent<LayoutElement>().preferredHeight = 54f;
 
         Transform listContent = CreateScrollView(panel.transform);
 
@@ -56,7 +60,7 @@ public static class WatermelonSkinSetup
         HorizontalLayoutGroup actionsLayout = actions.AddComponent<HorizontalLayoutGroup>();
         actionsLayout.spacing = 20f;
         actionsLayout.childAlignment = TextAnchor.MiddleCenter;
-        actions.AddComponent<LayoutElement>().preferredHeight = 90f;
+        actions.AddComponent<LayoutElement>().preferredHeight = 68f;
 
         Button resetAllButton = CreateButton(actions.transform, "ResetAllButton", "All Default", font);
         Button startButton = CreateButton(actions.transform, "StartButton", "Start Game", font);
@@ -77,6 +81,29 @@ public static class WatermelonSkinSetup
         Debug.Log("Fruit skin setup panel added. It will pause fruit spawning until Start Game is clicked.");
     }
 
+    static void EnsureEventSystem()
+    {
+        EventSystem existing = Object.FindFirstObjectByType<EventSystem>();
+        if (existing != null)
+        {
+            if (existing.GetComponent<InputSystemUIInputModule>() == null)
+            {
+                foreach (BaseInputModule module in existing.GetComponents<BaseInputModule>())
+                {
+                    Object.DestroyImmediate(module);
+                }
+
+                existing.gameObject.AddComponent<InputSystemUIInputModule>();
+            }
+
+            return;
+        }
+
+        GameObject eventSystem = new GameObject("EventSystem");
+        eventSystem.AddComponent<EventSystem>();
+        eventSystem.AddComponent<InputSystemUIInputModule>();
+    }
+
     static GameObject CreatePanel(Transform parent)
     {
         GameObject panel = new GameObject("FruitSkinSetupPanel");
@@ -92,8 +119,8 @@ public static class WatermelonSkinSetup
         background.color = new Color(0.96f, 0.93f, 0.86f, 0.98f);
 
         VerticalLayoutGroup layout = panel.AddComponent<VerticalLayoutGroup>();
-        layout.padding = new RectOffset(80, 80, 80, 80);
-        layout.spacing = 12f;
+        layout.padding = new RectOffset(60, 60, 24, 24);
+        layout.spacing = 8f;
         layout.childControlHeight = true;
         layout.childControlWidth = true;
         layout.childForceExpandHeight = false;
@@ -108,6 +135,8 @@ public static class WatermelonSkinSetup
         scrollView.transform.SetParent(parent, false);
         scrollView.AddComponent<RectTransform>();
         LayoutElement scrollLayout = scrollView.AddComponent<LayoutElement>();
+        scrollLayout.minHeight = 260f;
+        scrollLayout.preferredHeight = 420f;
         scrollLayout.flexibleHeight = 1f;
 
         Image scrollBg = scrollView.AddComponent<Image>();
@@ -141,8 +170,8 @@ public static class WatermelonSkinSetup
         contentRect.offsetMax = new Vector2(0f, 0f);
 
         VerticalLayoutGroup contentLayout = content.AddComponent<VerticalLayoutGroup>();
-        contentLayout.spacing = 12f;
-        contentLayout.padding = new RectOffset(12, 12, 12, 12);
+        contentLayout.spacing = 8f;
+        contentLayout.padding = new RectOffset(12, 12, 10, 10);
         contentLayout.childControlHeight = true;
         contentLayout.childControlWidth = true;
         contentLayout.childForceExpandHeight = false;
@@ -164,15 +193,17 @@ public static class WatermelonSkinSetup
         HorizontalLayoutGroup layout = row.AddComponent<HorizontalLayoutGroup>();
         layout.spacing = 16f;
         layout.childAlignment = TextAnchor.MiddleCenter;
-        row.AddComponent<LayoutElement>().preferredHeight = 86f;
+        row.AddComponent<LayoutElement>().preferredHeight = 64f;
 
         GameObject previewObject = new GameObject("Preview");
         previewObject.transform.SetParent(row.transform, false);
         preview = previewObject.AddComponent<Image>();
         preview.preserveAspect = true;
-        previewObject.AddComponent<LayoutElement>().preferredWidth = 80f;
+        LayoutElement previewLayout = previewObject.AddComponent<LayoutElement>();
+        previewLayout.preferredWidth = 64f;
+        previewLayout.preferredHeight = 58f;
 
-        GameObject label = CreateText(row.transform, "Name", fruitName, font, 30, TextAnchor.MiddleLeft);
+        GameObject label = CreateText(row.transform, "Name", fruitName, font, 24, TextAnchor.MiddleLeft);
         label.GetComponent<LayoutElement>().flexibleWidth = 1f;
         nameText = label.GetComponent<Text>();
 
@@ -203,7 +234,11 @@ public static class WatermelonSkinSetup
         Button button = buttonObject.AddComponent<Button>();
         buttonObject.AddComponent<LayoutElement>().preferredWidth = 180f;
 
-        GameObject textObject = CreateText(buttonObject.transform, "Text", value, font, 28, TextAnchor.MiddleCenter);
+        LayoutElement buttonLayout = buttonObject.GetComponent<LayoutElement>();
+        buttonLayout.preferredWidth = 150f;
+        buttonLayout.preferredHeight = 58f;
+
+        GameObject textObject = CreateText(buttonObject.transform, "Text", value, font, 24, TextAnchor.MiddleCenter);
         RectTransform textRect = textObject.GetComponent<RectTransform>();
         textRect.anchorMin = Vector2.zero;
         textRect.anchorMax = Vector2.one;
