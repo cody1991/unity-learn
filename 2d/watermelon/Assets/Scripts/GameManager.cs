@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     int nextTier;
     bool isDropping;
     bool gameOver;
+    bool gameStarted;
 
     void Awake()
     {
@@ -99,7 +100,11 @@ public class GameManager : MonoBehaviour
         EnsureNextFruitUI();
         CompactNextFruitUI();
         UpdateNextFruitUI();
-        SpawnPreviewFruit();
+
+        if (FindAnyObjectByType<FruitSkinSetupPanel>() == null)
+        {
+            BeginGame();
+        }
     }
 
     void EnsureNextFruitUI()
@@ -286,6 +291,19 @@ public class GameManager : MonoBehaviour
         isDropping = false;
     }
 
+    public void BeginGame()
+    {
+        if (gameStarted)
+        {
+            return;
+        }
+
+        gameStarted = true;
+        BuildSprites();
+        UpdateNextFruitUI();
+        SpawnPreviewFruit();
+    }
+
     void DropCurrentFruit()
     {
         if (currentFruit == null)
@@ -416,6 +434,7 @@ public class GameManager : MonoBehaviour
         scoreBoard.ResetScore();
         gameOverDetector.ResetDetector();
         gameOver = false;
+        gameStarted = false;
         isDropping = false;
         currentFruit = null;
         nextTier = RollNextTier();
@@ -426,7 +445,7 @@ public class GameManager : MonoBehaviour
             gameOverPanel.SetActive(false);
         }
 
-        SpawnPreviewFruit();
+        BeginGame();
     }
 
     void UpdateNextFruitUI()
@@ -453,7 +472,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < database.fruits.Length; i++)
         {
             FruitDefinition def = database.fruits[i];
-            Sprite sprite = FruitSpriteLoader.Load(def.name);
+            Sprite sprite = FruitSpriteLoader.LoadForTier(i, def.name);
             fruitSprites[i] = sprite != null ? sprite : SpriteFactory.CreateCircleSprite(def.color);
         }
     }
