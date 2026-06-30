@@ -7,8 +7,7 @@ public class GameSession : MonoBehaviour
 
     [SerializeField] int playerLives = 3;
     [SerializeField] int score = 0;
-    [SerializeField] TextMeshProUGUI livesText;
-    [SerializeField] TextMeshProUGUI scoreText;
+    [SerializeField] TextMeshProUGUI hudText;
 
     // 进入当前关卡时的分数存档点：命全部用光、重开本关时回退到这个值，
     // 这样只清掉本关拿到的分，之前关卡累计的分保留
@@ -62,7 +61,7 @@ public class GameSession : MonoBehaviour
 
     public void AddToScore(int pointsToAdd) {
         score += pointsToAdd;
-        scoreText.text = score.ToString();
+        RefreshUI();
     }
 
     // 进入新关卡时调用，把当前分数记为本关的存档点
@@ -77,8 +76,8 @@ public class GameSession : MonoBehaviour
     }
 
     void RefreshUI() {
-        livesText.text = playerLives.ToString();
-        scoreText.text = score.ToString();
+        // 一个文本里同时显示生命和分数；想换格式/换行/标签在这里改即可
+        hudText.text = "Lives: " + playerLives + "\nScore: " + score;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

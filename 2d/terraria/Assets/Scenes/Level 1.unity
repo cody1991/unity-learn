@@ -23062,6 +23062,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Session
       objectReference: {fileID: 0}
+    - target: {fileID: 5334879070899617489, guid: 2c6acca1e9a834679879953838c89c56, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5694705736758487182, guid: 2c6acca1e9a834679879953838c89c56, type: 3}
       propertyPath: m_LocalPosition.x
       value: -17.78982
