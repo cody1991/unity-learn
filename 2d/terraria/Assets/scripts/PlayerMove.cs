@@ -22,6 +22,7 @@ public class PlayerMove : MonoBehaviour
     float gravityScaleAtStart;
 
     bool isAlive = true;
+    public bool IsAlive => isAlive;
 
     [SerializeField] GameObject bullet;
     [SerializeField] Transform gun; 
