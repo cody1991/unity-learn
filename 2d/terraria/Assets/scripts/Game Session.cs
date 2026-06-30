@@ -77,7 +77,7 @@ public class GameSession : MonoBehaviour
 
     void RefreshUI() {
         // 一个文本里同时显示生命和分数；想换格式/换行/标签在这里改即可
-        hudText.text = "Lives: " + playerLives + "\nScore: " + score;
+        hudText.text = "LIVES " + playerLives + " / SCORE " + score;
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
