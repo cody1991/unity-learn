@@ -10,6 +10,10 @@ public class GameSession : MonoBehaviour
     [SerializeField] TextMeshProUGUI livesText;
     [SerializeField] TextMeshProUGUI scoreText;
 
+    // 进入当前关卡时的分数存档点：命全部用光、重开本关时回退到这个值，
+    // 这样只清掉本关拿到的分，之前关卡累计的分保留
+    int scoreAtLevelStart = 0;
+
     // 单例模式
     // 比如减少生命值
     void Awake() {
@@ -40,13 +44,14 @@ public class GameSession : MonoBehaviour
     }
 
     void ResetGameSession() {
-        playerLives = 3;
-        ReloadCurrentScene();
-
         ScenePersist scenePersist = FindFirstObjectByType<ScenePersist>();
         if (scenePersist != null) {
             scenePersist.ResetScenePersist();
         }
+
+        playerLives = 3;
+        score = scoreAtLevelStart;
+        ReloadCurrentScene();
     }
 
     public void AddToScore(int pointsToAdd) {
@@ -54,17 +59,27 @@ public class GameSession : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
+    // 进入新关卡时调用，把当前分数记为本关的存档点
+    public void SetLevelStartScore() {
+        scoreAtLevelStart = score;
+    }
+
     void ReloadCurrentScene() {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentSceneIndex);
-        livesText.text = playerLives.ToString();
+        RefreshUI();
     }
-    
+
+    void RefreshUI() {
+        livesText.text = playerLives.ToString();
+        scoreText.text = score.ToString();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        livesText.text = playerLives.ToString();
-        scoreText.text = score.ToString();
+        SetLevelStartScore();
+        RefreshUI();
     }
 
     // Update is called once per frame

@@ -25,6 +25,12 @@ public class Door : MonoBehaviour
                 scenePersist.ResetScenePersist();
             }
 
+            // 通关进入下一关，把当前分数固定为新关卡的存档点（本关的分已落袋）
+            GameSession gameSession = FindFirstObjectByType<GameSession>();
+            if (gameSession != null) {
+                gameSession.SetLevelStartScore();
+            }
+
             SceneManager.LoadScene(currentSceneIndex + 1);
         }
     }
