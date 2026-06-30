@@ -136,9 +136,9 @@ public class PlayerMove : MonoBehaviour
         gameSession.ProcessPlayerDeath();
     }
 
-    public void SavePosition() {
-        // 按钮调用这里保存安全位置，死亡重载后会从这个位置恢复
-        savedPosition = transform.position;
+    public void SavePosition(Vector2 position) {
+        // 由存档点传入它自己的位置，死亡重载后玩家会正好复活在存档点处
+        savedPosition = position;
         hasSavedPosition = true;
     }
 

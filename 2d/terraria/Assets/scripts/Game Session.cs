@@ -49,6 +49,12 @@ public class GameSession : MonoBehaviour
             scenePersist.ResetScenePersist();
         }
 
+        // 彻底重开本关：清掉中途的位置存档，让玩家回到关卡默认出生点
+        PlayerMove player = FindFirstObjectByType<PlayerMove>();
+        if (player != null) {
+            player.ClearSave();
+        }
+
         playerLives = 3;
         score = scoreAtLevelStart;
         ReloadCurrentScene();
