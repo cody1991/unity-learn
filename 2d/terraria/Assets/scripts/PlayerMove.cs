@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -127,17 +126,14 @@ public class PlayerMove : MonoBehaviour
             myAnimator.SetTrigger("Dying");
             myRigidbody.linearVelocity = deathKick;
 
-            // 三秒后重启
-            Invoke("RestartGame", 1f);
-
-            GameSession gameSession = FindAnyObjectByType<GameSession>();
-            gameSession.ProcessPlayerDeath();
+            // 延迟处理死亡（重载场景），让死亡动画有时间播放
+            Invoke("HandleDeath", 1f);
         }
     }
 
-
-    void RestartGame() {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    void HandleDeath() {
+        GameSession gameSession = FindAnyObjectByType<GameSession>();
+        gameSession.ProcessPlayerDeath();
     }
 
     public void SavePosition() {
